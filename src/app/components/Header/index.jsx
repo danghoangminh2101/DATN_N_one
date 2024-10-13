@@ -1,11 +1,10 @@
 'use client';  
 import { FaPhone, FaEnvelope, FaUser, FaHeart, FaShoppingCart, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+
 
 const Header = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-  const cartCount = cartItems.reduce((count, item) => count + Number(item.quantity), 0);
+
   
   return (
     <div>
@@ -31,12 +30,12 @@ const Header = () => {
                     demo@example.com
                   </a>
                 </li>
-                <li className="mr-4 pr-4 border-gray-600">
+                {/* <li className="mr-4 pr-4 border-gray-600">
                   <a href="#" className="text-gray-300 text-sm flex items-center hover:text-blue-500">
                     <FaUser className="mr-1 w-4 h-4" />
                     Account
                   </a>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
@@ -65,15 +64,16 @@ const Header = () => {
             <div className="relative">
               <Link href="/cart">
                 <FaShoppingCart className="text-gray-300 w-6 h-6 hover:text-blue-500" aria-label="Cart" />
-                <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs rounded-full px-2">{cartCount}</span>
+                <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs rounded-full px-2"></span>
               </Link>
             </div>
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="bg-blue-600 text-white w-[80%] mx-auto py-4 h-[50px]">
-  <ul className="flex justify-center items-center space-x-8 max-w-screen-xl mx-auto px-4 h-full">
+     {/* Navigation */}
+<nav className="bg-blue-600 text-white w-[80%] mx-auto py-4 h-[50px]">
+  <ul className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 max-w-screen-xl mx-auto px-4 h-full">
     <li className="hover:underline text-[16px]"><Link href="/">HOME</Link></li>
     <li className="hover:underline text-[16px]"><Link href="/about">ABOUT</Link></li>
     <li className="hover:underline text-[16px]"><Link href="/pages">PAGES</Link></li>
@@ -82,6 +82,7 @@ const Header = () => {
     <li className="hover:underline text-[16px]"><Link href="/contact">CONTACT</Link></li>
   </ul>
 </nav>
+
 
       </header>
     </div>

@@ -36,6 +36,11 @@ body {
   box-sizing: border-box;
 }
 
+@media (max-width: 320px) {
+  .custom-small-text {
+    font-size: 12px; 
+  }
+}
 html {
   font-size: 14px; /* Kích thước cơ bản */
 }

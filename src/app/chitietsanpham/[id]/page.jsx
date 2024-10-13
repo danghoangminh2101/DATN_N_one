@@ -7,36 +7,36 @@ import { HiArrowPathRoundedSquare } from "react-icons/hi2";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import Swal from "sweetalert2";
 import { IoEyeOutline } from "react-icons/io5";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "@/redux/slices/cartslice";
 // Import Slick Carousel CSS
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { useRecoilState } from "recoil";
+import { addCart } from "../../cart/cartState";
+import { cartState } from "../../cart/cartState";
 // Custom next arrow component
-const SampleNextArrow = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div
-      className={`${className} absolute mr-8 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer`}
-      onClick={onClick}
-    >
-      <button className="bg-white w-12 h-12 text-black p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out"></button>
-    </div>
-  );
-};
+// const SampleNextArrow = (props) => {
+//   const { className, onClick } = props;
+//   return (
+//     <div
+//       className={`${className} absolute mr-8 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer`}
+//       onClick={onClick}
+//     >
+//       <button className="bg-white w-12 h-12 text-black p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out"></button>
+//     </div>
+//   );
+// };
 
-const SamplePrevArrow = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div
-      className={`${className} absolute transform -translate-y-1/2 z-10 cursor-pointer`}
-      onClick={onClick}
-    >
-      <button className="bg-white w-12 h-12 text-black p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out"></button>
-    </div>
-  );
-};
+// const SamplePrevArrow = (props) => {
+//   const { className, onClick } = props;
+//   return (
+//     <div
+//       className={`${className} absolute transform -translate-y-1/2 z-10 cursor-pointer`}
+//       onClick={onClick}
+//     >
+//       <button className="bg-white w-12 h-12 text-black p-2 rounded-full shadow-lg hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out"></button>
+//     </div>
+//   );
+// };
 
 export default function ProductDetail() {
   const handleAddToWishlist = () => {
@@ -107,8 +107,6 @@ export default function ProductDetail() {
   };
 
   const [quantity, setQuantity] = useState(1);
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
 
   // Dữ liệu sản phẩm có sẵn
   const product = {
@@ -129,7 +127,7 @@ export default function ProductDetail() {
   const products = [
     {
       id: 1,
-      image: "https://via.placeholder.com/270x274",
+      image: "https://via.placeholder.com/257x261",
       name: "Modern Smart Phone",
       price: "$38.50",
       sale: "Sale 10%",
@@ -138,7 +136,7 @@ export default function ProductDetail() {
     },
     {
       id: 2,
-      image: "https://via.placeholder.com/270x274",
+      image: "https://via.placeholder.com/257x261",
       name: "Bluetooth Headphone",
       price: "$38.50",
       sale: "Sale 10%",
@@ -147,7 +145,7 @@ export default function ProductDetail() {
     },
     {
       id: 3,
-      image: "https://via.placeholder.com/270x274",
+      image: "https://via.placeholder.com/257x261",
       name: "Smart Music Box",
       price: "$38.50",
       sale: "Sale",
@@ -156,7 +154,7 @@ export default function ProductDetail() {
     },
     {
       id: 4,
-      image: "https://via.placeholder.com/270x274",
+      image: "https://via.placeholder.com/257x261",
       name: "Air Pods 256K Black",
       price: "$38.50",
       sale: "Sale",
@@ -187,14 +185,13 @@ export default function ProductDetail() {
   };
 
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -212,21 +209,28 @@ export default function ProductDetail() {
       },
     ],
   };
-  
-  return (
-    <div >
-    <div className="breadcrumb-area relative h-[406px] md:h-[300px] sm:h-[260px]">
-  <img
-    src={product.images[0]}
-    alt="Single Product"
-    className="w-full h-full object-cover rounded-[10px]"
-  />
-  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-    <h1 className="text-3xl font-bold text-white">Single Product</h1>
-    <p className="text-lg text-white">Home / Product</p>
-  </div>
-</div>
 
+
+  
+  const [cart, setCart] = useRecoilState(cartState);
+
+  const addToCart = () => {
+    const newCart = addCart(cart, product);
+    setCart(newCart);
+  };
+  return (
+    <div>
+      <div className="breadcrumb-area relative h-[406px] md:h-[300px] sm:h-[260px]">
+        <img
+          src={product.images[0]}
+          alt="Single Product"
+          className="w-full h-full object-cover rounded-[10px]"
+        />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+          <h1 className="text-3xl font-bold text-white">Single Product</h1>
+          <p className="text-lg text-white">Home / Product</p>
+        </div>
+      </div>
 
       <div className="container mx-auto max-w-[1170px] px-4 py-10">
         <div className="flex flex-wrap mt-4">
@@ -282,10 +286,10 @@ export default function ProductDetail() {
 
             {/* review, feedback */}
             <div className="flex items-center">
-              <div className="flex items-center rounded-sm h-[50px] bg-[#454545]">
+              <div className="flex items-center w-[90px] rounded-sm h-[40px] bg-[#454545] mr-1">
                 <button
                   onClick={decrement}
-                  className="px-4 py-2 text-[14px] rounded focus:outline-none text-white"
+                  className="px-3 py-1 text-[14px] rounded focus:outline-none text-white pr-4"
                 >
                   -
                 </button>
@@ -294,29 +298,27 @@ export default function ProductDetail() {
                 </span>
                 <button
                   onClick={increment}
-                  className="px-4 py-2 text-[14px] rounded focus:outline-none text-white"
+                  className="px-3 py-1 text-[14px] rounded focus:outline-none text-white"
                 >
                   +
                 </button>
               </div>
               <button
-                className="bg-blue-500 hover:bg-black w-[189px] h-[50px] text-white text-[18px] font-semibold py-2 px-4 rounded ml-4"
-                onClick={() => dispatch(addToCart({ item: product, quantity }))}
+                className="bg-blue-500 hover:bg-black w-[100%] h-[40px] text-white text-[16px] font-semibold rounded custom-small-text "
+                onClick={() => addToCart(product)}
               >
                 Add to cart
               </button>
-              <div className="flex items-center gap-2 ml-4 text-text font-normal">
+
+              <div className="flex items-center gap-2 ml-1 text-text font-normal">
                 <button
-                  className="bg-gray-300 rounded-sm p-2"
+                  className="bg-gray-300 rounded-sm w-[50px] h-[40px] w-[40px]  flex items-center justify-center"
                   style={{ backgroundColor: "#454545" }}
                 >
                   <CiHeart className="w-6 h-6 text-white" />
                 </button>
-              </div>
-
-              <div className="flex items-center gap-2 ml-4 text-text font-normal ">
                 <button
-                  className="bg-gray-300 rounded-sm p-2"
+                  className="bg-gray-300 rounded-sm w-[50px] h-[40px] w-[40px] flex items-center justify-center"
                   style={{ backgroundColor: "#454545" }}
                 >
                   <HiArrowPathRoundedSquare className="w-6 h-6 text-white" />
@@ -326,9 +328,9 @@ export default function ProductDetail() {
 
             {/* Các Tab */}
             <div className="mt-4 flex flex-col">
-              <div className="flex space-x-4 text-[18px] font-bold">
+              <div className="flex space-x-4 text-[14px] font-bold">
                 <button
-                  className={` px-4 py-2 text-black transition duration-300 ${
+                  className={`px-4 py-2 text-black transition duration-300 ${
                     activeTab === "information"
                       ? "text-[#266bf9] border-b-2 border-[#266bf9]"
                       : "hover:text-[#266bf9]"
@@ -347,8 +349,10 @@ export default function ProductDetail() {
                 >
                   Description
                 </button>
+              </div>
+              <div className="mt-2">
                 <button
-                  className={`px-4 py-2 text-black transition duration-300 ${
+                  className={`w-full text-left px-4 py-2 text-black transition duration-300 ${
                     activeTab === "reviews"
                       ? "text-[#266bf9] border-b-2 border-[#266bf9]"
                       : "hover:text-[#266bf9]"
@@ -358,6 +362,7 @@ export default function ProductDetail() {
                   Reviews ({product.reviews})
                 </button>
               </div>
+
               <hr
                 className={`border-b-2 mt-2 ${
                   activeTab === "information" ||
@@ -423,13 +428,18 @@ export default function ProductDetail() {
               </div>
             )}
             {activeTab === "reviews" && (
-              <div className="mt-7 ">
+              <div className="mt-7">
                 {comments.map((comment) => (
-                  <div key={comment.id} className="flex mt-10 mb-10 ">
+                  <div
+                    key={comment.id}
+                    className="flex flex-col md:flex-row mt-10 mb-10"
+                  >
+                    {" "}
+                    {/* Thay đổi thành flex-col cho kích thước nhỏ */}
                     <img
                       src={comment.image}
                       alt="User"
-                      className="w-[90px] h-[90px] mr-4"
+                      className="w-[90px] h-[90px] mb-4 md:mr-4 md:mb-0" // Thêm mb-4 cho kích thước nhỏ
                     />
                     <div className="flex-1">
                       <div className="flex justify-between items-center">
@@ -452,11 +462,13 @@ export default function ProductDetail() {
 
                       {/* Bình luận trả lời */}
                       <div className="mt-12">
-                        <div className="flex">
+                        <div className="flex flex-col md:flex-row">
+                          {" "}
+                          {/* Thay đổi thành flex-col cho kích thước nhỏ */}
                           <img
                             src="https://via.placeholder.com/120"
                             alt="User Reply"
-                            className="w-[90px] h-[90px] mr-4"
+                            className="w-[90px] h-[90px] mb-4 md:mr-4 md:mb-0" // Thêm mb-4 cho kích thước nhỏ
                           />
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
@@ -542,25 +554,27 @@ export default function ProductDetail() {
         </div>
 
         {/* Sản phẩm liên quan */}
-        <div className="mt-10">
-          <h2 className="text-[48px] text-center font-semibold mb-5">
+        <div className="mt-10 ">
+          <h2 className="text-[48px] text-center font-semibold mb-5 ">
             Related Products
           </h2>
           <p className="text-[18px] text-center text-gray-500 mb-7">
             There are many variations of passages of Lorem Ipsum available
           </p>
 
-          <Slider {...settings}>
-      {products.map((product) => (
-        <div
-          className="border p-1 relative group transition-all duration-300 h-[382px] hover:h-[450px]"
-          key={product.id}
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-auto mb-2"
-          />
+          <Slider {...settings} className="ml-4">
+
+            {products.map((product) => (
+              <div
+              className="border p-1 relative group transition-all duration-500 w-[270px] h-[382px] hover:h-[450px]"
+              key={product.id}
+            >
+            
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-auto mb-2"
+                />
                 {/* Tags */}
                 <div className="absolute top-2 left-2 flex space-x-2">
                   <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">
@@ -583,10 +597,10 @@ export default function ProductDetail() {
 
                 {/* Hover Effect for Buttons */}
                 <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                <button
-  className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
-  onClick={handleAddToCart}
->
+                  <button
+                    className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
+                    onClick={handleAddToCart}
+                  >
                     <MdOutlineShoppingBag className="w-6 h-6" />
                   </button>
                   <button
@@ -598,12 +612,12 @@ export default function ProductDetail() {
                   <button className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1">
                     <IoEyeOutline className="w-6 h-6" />
                   </button>
-<button
-  className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
-  onClick={handleAddToCompare}
->
-  <HiArrowPathRoundedSquare className="w-6 h-6" />
-</button>
+                  <button
+                    className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
+                    onClick={handleAddToCompare}
+                  >
+                    <HiArrowPathRoundedSquare className="w-6 h-6" />
+                  </button>
                 </div>
               </div>
             ))}
