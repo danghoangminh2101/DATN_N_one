@@ -1,9 +1,11 @@
 'use client';  
 import { FaPhone, FaEnvelope, FaUser, FaHeart, FaShoppingCart, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
-
-
+import { cartState } from '../../cart/cartState'; 
+import { useRecoilValue } from 'recoil';
 const Header = () => {
+  const cart = useRecoilValue(cartState);
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   
   return (
@@ -62,9 +64,14 @@ const Header = () => {
           <div className="flex space-x-4 items-center">
             <FaHeart className="text-gray-300 w-6 h-6 hover:text-blue-500" />
             <div className="relative">
-              <Link href="/cart">
+            <Link href="/cart">
                 <FaShoppingCart className="text-gray-300 w-6 h-6 hover:text-blue-500" aria-label="Cart" />
-                <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs rounded-full px-2"></span>
+             
+                {totalQuantity > 0 && (
+                  <span className="absolute top-0 right-0 bg-blue-500 text-white text-xs rounded-full px-2">
+                    {totalQuantity}
+                  </span>
+                )}
               </Link>
             </div>
           </div>

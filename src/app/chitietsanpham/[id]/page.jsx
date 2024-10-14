@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useState } from "react";
 import "../../globals.css";
 import Slider from "react-slick";
@@ -103,10 +103,10 @@ export default function ProductDetail() {
         }
       },
     });
-    dispatch(addToCart({ item: product, quantity }));
+  (addToCart({ item: product, quantity }));
   };
 
-  const [quantity, setQuantity] = useState(1);
+ 
 
   // Dữ liệu sản phẩm có sẵn
   const product = {
@@ -166,7 +166,7 @@ export default function ProductDetail() {
     {
       id: 1,
       name: "Tulen",
-      image: "https://via.placeholder.com/90x90", // Hình ảnh người dùng
+      image: "https://via.placeholder.com/90x90",
       rating: 4, // Số sao
       content:
         "Vestibulum ante ipsum primis aucibus orci luctustrices posuere cubilia Curae Suspendisse viverra ed viverra. Mauris ullarper euismod vehicula. Phasellus quam nisi, congue id nulla.",
@@ -174,16 +174,7 @@ export default function ProductDetail() {
   ];
   const [activeTab, setActiveTab] = useState("information");
 
-  const increment = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const decrement = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-
+ 
   const settings = {
     // dots: true,
     infinite: true,
@@ -210,14 +201,33 @@ export default function ProductDetail() {
     ],
   };
 
+  const [cart, setCart] = useRecoilState(cartState); 
+  const [quantity, setQuantity] = useState(1); 
 
-  
-  const [cart, setCart] = useRecoilState(cartState);
-
-  const addToCart = () => {
-    const newCart = addCart(cart, product);
-    setCart(newCart);
+  // Hàm tăng số lượng
+  const increment = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
   };
+
+  // Hàm giảm số lượng (không cho phép giảm dưới 1)
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+
+  // Hàm thêm sản phẩm vào giỏ hàng
+  const addToCart = () => {
+    const newCart = addCart(cart, { ...product, quantity });
+    setCart(newCart); // Cập nhật giỏ hàng trong Recoil
+  };
+  
+  // const [cart, setCart] = useRecoilState(cartState);
+
+  // const addToCart = () => {
+  //   const newCart = addCart(cart, product);
+  //   setCart(newCart);
+  // };
   return (
     <div>
       <div className="breadcrumb-area relative h-[406px] md:h-[300px] sm:h-[260px]">
@@ -304,7 +314,7 @@ export default function ProductDetail() {
                 </button>
               </div>
               <button
-                className="bg-blue-500 hover:bg-black w-[100%] h-[40px] text-white text-[16px] font-semibold rounded custom-small-text "
+                className="bg-blue-500 hover:bg-black w-[189px] h-[40px] text-white text-[16px] font-semibold rounded custom-small-text "
                 onClick={() => addToCart(product)}
               >
                 Add to cart
@@ -312,13 +322,13 @@ export default function ProductDetail() {
 
               <div className="flex items-center gap-2 ml-1 text-text font-normal">
                 <button
-                  className="bg-gray-300 rounded-sm w-[50px] h-[40px] w-[40px]  flex items-center justify-center"
+                  className="bg-gray-300 rounded-sm  h-[40px] w-[40px]  flex items-center justify-center"
                   style={{ backgroundColor: "#454545" }}
                 >
                   <CiHeart className="w-6 h-6 text-white" />
                 </button>
                 <button
-                  className="bg-gray-300 rounded-sm w-[50px] h-[40px] w-[40px] flex items-center justify-center"
+                  className="bg-gray-300 rounded-sm  h-[40px] w-[40px] flex items-center justify-center"
                   style={{ backgroundColor: "#454545" }}
                 >
                   <HiArrowPathRoundedSquare className="w-6 h-6 text-white" />
@@ -327,52 +337,56 @@ export default function ProductDetail() {
             </div>
 
             {/* Các Tab */}
-            <div className="mt-4 flex flex-col">
-              <div className="flex space-x-4 text-[14px] font-bold">
-                <button
-                  className={`px-4 py-2 text-black transition duration-300 ${
-                    activeTab === "information"
-                      ? "text-[#266bf9] border-b-2 border-[#266bf9]"
-                      : "hover:text-[#266bf9]"
-                  } `}
-                  onClick={() => setActiveTab("information")}
-                >
-                  Information
-                </button>
-                <button
-                  className={`px-4 py-2 text-black transition duration-300 ${
-                    activeTab === "description"
-                      ? "text-[#266bf9] border-b-2 border-[#266bf9]"
-                      : "hover:text-[#266bf9]"
-                  }`}
-                  onClick={() => setActiveTab("description")}
-                >
-                  Description
-                </button>
-              </div>
-              <div className="mt-2">
-                <button
-                  className={`w-full text-left px-4 py-2 text-black transition duration-300 ${
-                    activeTab === "reviews"
-                      ? "text-[#266bf9] border-b-2 border-[#266bf9]"
-                      : "hover:text-[#266bf9]"
-                  }`}
-                  onClick={() => setActiveTab("reviews")}
-                >
-                  Reviews ({product.reviews})
-                </button>
-              </div>
+            <div className="mt-4 flex flex-col text-[16px]">
+  {/* Tabs container */}
+  <div className="flex flex-wrap space-x-4 font-bold items-center">
+    <button
+      className={`px-4 py-2 text-black transition duration-300 ${
+        activeTab === "information"
+          ? "text-[#266bf9] border-b-2 border-[#266bf9]"
+          : "hover:text-[#266bf9]"
+      }`}
+      onClick={() => setActiveTab("information")}
+    >
+      Information
+    </button>
 
-              <hr
-                className={`border-b-2 mt-2 ${
-                  activeTab === "information" ||
-                  activeTab === "description" ||
-                  activeTab === "reviews"
-                    ? "text-gray-500"
-                    : "border-gray-300"
-                }`}
-              />
-            </div>
+    <button
+      className={`px-4 py-2 text-black transition duration-300 ${
+        activeTab === "description"
+          ? "text-[#266bf9] border-b-2 border-[#266bf9]"
+          : "hover:text-[#266bf9]"
+      }`}
+      onClick={() => setActiveTab("description")}
+    >
+      Description
+    </button>
+
+    {/* Reviews button */}
+    <div className="w-full sm:w-auto mt-2 sm:mt-0">
+      <button
+        className={`w-full sm:w-auto text-left px-4 py-2 text-black transition duration-300 ${
+          activeTab === "reviews"
+            ? "text-[#266bf9] border-b-2 border-[#266bf9]"
+            : "hover:text-[#266bf9]"
+        }`}
+        onClick={() => setActiveTab("reviews")}
+      >
+        Reviews ({product.reviews})
+      </button>
+    </div>
+  </div>
+
+  {/* Divider */}
+  <hr
+    className={`border-b-2 mt-2 ${
+      ["information", "description", "reviews"].includes(activeTab)
+        ? "text-gray-500"
+        : "border-gray-300"
+    }`}
+  />
+</div>
+
 
             {/* Nội dung của các Tab */}
             {activeTab === "information" && (

@@ -1,28 +1,24 @@
 import { atom } from 'recoil';
-import { CartItem } from '../../type/cartItem'; 
+
+// Định nghĩa atom cho giỏ hàng
 export const cartState = atom({
-    key: 'cart', 
-    default: [],  
+  key: 'cart',
+  default: [],  
 });
 
 export const addCart = (cart, product) => {
-    const newCart = [...cart];
-    const foundIndex = cart.findIndex(x => x.id === product.id);
-    // Increase quantity if existing
-    if (foundIndex >= 0) {
+  const newCart = [...cart]; 
+  const foundIndex = cart.findIndex((item) => item.id === product.id);
+
+  if (foundIndex >= 0) {
+
     newCart[foundIndex] = {
-    ...cart[foundIndex],
-    quantity: cart[foundIndex].quantity + 1,
+      ...cart[foundIndex],
+      quantity: cart[foundIndex].quantity + product.quantity,
     };
-    return newCart;
-    }
-    // Add new product
-  
-        newCart.push({
-            id: product.id,
-            name: product.name, 
-            price: product.price, 
-            quantity: 1,
-          });
-    return newCart;
-    };
+  } else {
+    newCart.push(product);
+  }
+
+  return newCart;
+};
