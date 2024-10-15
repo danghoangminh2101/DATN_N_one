@@ -1,10 +1,10 @@
 .table-cart tbody tr{
-    border: 1px solid white;
+    border: 1px solid #266bf9;
     border-bottom: none;
     text-align: center;
 }
 .table-cart tbody tr:last-child{
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #266bf9;
 }
  button.cart-btn-2 {
     background: #266bf9;
