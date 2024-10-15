@@ -1,9 +1,9 @@
 "use client";
-import { cartState } from "../../cart/cartState";
+import { cartState } from "../../../cart/cartState";
 import Slider from "react-slick";
-import { addCart } from "../../cart/cartState";
+import { addCart } from "../../../cart/cartState";
 import React, { useState } from "react";
-import "../../globals.css";
+import "../../../globals.css";
 import { CiHeart } from "react-icons/ci";
 import { HiArrowPathRoundedSquare } from "react-icons/hi2";
 import { MdOutlineShoppingBag } from "react-icons/md";
@@ -167,64 +167,68 @@ const RelatedProduct = () => {
 
   return (
     <div>
-      <Slider {...settings} className="ml-4">
-        {products.map((product) => (
-          <div
-            className="border p-1 relative group transition-all duration-500 w-[270px] h-[382px] hover:h-[450px]"
-            key={product.id}
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-auto mb-2"
-            />
-            {/* Tags */}
-            <div className="absolute top-2 left-2 flex space-x-2">
-              <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">
-                Sale 10%
-              </span>
-              <span className="bg-black text-white text-xs px-2 py-1 rounded">
-                New
-              </span>
-            </div>
-            <h5 className="text-[14px] text-gray-500 font-thin text-center">
-              Accessories
-            </h5>
-            <h3 className="text-[16px] font-normal text-center">
-              {product.name}
-            </h3>
-            <p className="text-gray-700 text-center text-[18px]">
-              <del className="font-light">{product.price}</del> -{" "}
-              {product.price}
-            </p>
+     <Slider {...settings} className="ml-4">
+  {products.map((product) => (
+    <div
+      className="border p-1 relative group transition-all duration-500 w-[270px] h-[382px] hover:h-[450px]"
+      key={product.id}
+    >
+      {product.image ? (
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-auto mb-2"
+        />
+      ) : (
+        <div className="w-full h-[273px] bg-gray-200 flex items-center justify-center">
+          <span className="text-gray-500 text-sm">No Image Available</span>
+        </div>
+      )}
 
-            {/* Hover Effect for Buttons */}
-            <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-4 left-1/2 transform -translate-x-1/2">
-              <button
-                className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
-                onClick={handleAddToCart}
-              >
-                <MdOutlineShoppingBag className="w-6 h-6" />
-              </button>
-              <button
-                className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
-                onClick={handleAddToWishlist}
-              >
-                <CiHeart className="w-6 h-6" />
-              </button>
-              <button className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1">
-                <IoEyeOutline className="w-6 h-6" />
-              </button>
-              <button
-                className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
-                onClick={handleAddToCompare}
-              >
-                <HiArrowPathRoundedSquare className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </Slider>
+      <div className="absolute top-2 left-2 flex space-x-2">
+        <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">
+          Sale 10%
+        </span>
+        <span className="bg-black text-white text-xs px-2 py-1 rounded">
+          New
+        </span>
+      </div>
+
+      <h5 className="text-[14px] text-gray-500 font-thin text-center">
+        Accessories
+      </h5>
+      <h3 className="text-[16px] font-normal text-center">{product.name}</h3>
+      <p className="text-gray-700 text-center text-[18px]">
+        <del className="font-light">{product.price}</del> - {product.price}
+      </p>
+
+      <div className="flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-4 left-1/2 transform -translate-x-1/2">
+        <button
+          className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
+          onClick={handleAddToCart}
+        >
+          <MdOutlineShoppingBag className="w-6 h-6" />
+        </button>
+        <button
+          className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
+          onClick={handleAddToWishlist}
+        >
+          <CiHeart className="w-6 h-6" />
+        </button>
+        <button className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1">
+          <IoEyeOutline className="w-6 h-6" />
+        </button>
+        <button
+          className="text-white bg-[#454545] hover:bg-blue-500 rounded-sm p-2 mx-1"
+          onClick={handleAddToCompare}
+        >
+          <HiArrowPathRoundedSquare className="w-6 h-6" />
+        </button>
+      </div>
+    </div>
+  ))}
+</Slider>
+
     </div>
   );
 };

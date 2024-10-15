@@ -1,8 +1,8 @@
 import React from "react";
 import "../../globals.css";
-import RelatedProduct from "../../components/RelatedProduct/page";
-import BannerDetailProduct from "../../components/BannerDetailProduct/page";
-import InfoProduct from "../../components/InfoProduct/page";
+import RelatedProduct from "../components/RelatedProduct/page";
+import BannerDetailProduct from "../components/BannerDetailProduct/page";
+import InfoProduct from "../components/InfoProduct/page";
 export default function ProductDetail() {
   return (
     <div>

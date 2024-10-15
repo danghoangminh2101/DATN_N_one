@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import "../../globals.css";
-import TabDetailProduct from "../../components/TabDetailProduct/page";
+import "../../../globals.css";
+import TabDetailProduct from "../TabDetailProduct/page";
 import AddCart from "../../components/AddCart/page";
 const product = {
     id: "Ch-256xl",
@@ -33,7 +33,7 @@ const InforProduct = () => {
                 <img
                   key={index}
                   src={image}
-                  alt={`Thumbnail ${index + 1}`}
+                  alt={`${index + 1}`}
                   className="w-1/4 h-auto cursor-pointer rounded-[10px]"
                 />
               ))}

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "../../globals.css";
-import "../../globals.css";
+import "../../../globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -39,43 +38,41 @@ const TabDetailProduct = () => {
       {/* Các Tab */}
       <div className="mt-4 flex flex-col text-[16px]">
         {/* Tabs container */}
-        <div className="flex flex-wrap space-x-4 font-bold items-center">
-          <button
-            className={`px-4 py-2 text-black transition duration-300 ${
-              activeTab === "information"
-                ? "text-[#266bf9] border-b-2 border-[#266bf9]"
-                : "hover:text-[#266bf9]"
-            }`}
-            onClick={() => setActiveTab("information")}
-          >
-            Information
-          </button>
+        <div className="flex flex-wrap md:flex-nowrap md:space-x-4 font-bold items-center">
+  <button
+    className={`px-4 py-2 text-black transition duration-300 ${
+      activeTab === "information"
+        ? "text-[#266bf9] border-b-2 border-[#266bf9]"
+        : "hover:text-[#266bf9]"
+    }`}
+    onClick={() => setActiveTab("information")}
+  >
+    Information
+  </button>
 
-          <button
-            className={`px-4 py-2 text-black transition duration-300 ${
-              activeTab === "description"
-                ? "text-[#266bf9] border-b-2 border-[#266bf9]"
-                : "hover:text-[#266bf9]"
-            }`}
-            onClick={() => setActiveTab("description")}
-          >
-            Description
-          </button>
+  <button
+    className={`px-4 py-2 text-black transition duration-300 ${
+      activeTab === "description"
+        ? "text-[#266bf9] border-b-2 border-[#266bf9]"
+        : "hover:text-[#266bf9]"
+    }`}
+    onClick={() => setActiveTab("description")}
+  >
+    Description
+  </button>
 
-          {/* Reviews button */}
-          <div className="w-full sm:w-auto mt-2 sm:mt-0">
-            <button
-              className={`w-full sm:w-auto text-left px-4 py-2 text-black transition duration-300 ${
-                activeTab === "reviews"
-                  ? "text-[#266bf9] border-b-2 border-[#266bf9]"
-                  : "hover:text-[#266bf9]"
-              }`}
-              onClick={() => setActiveTab("reviews")}
-            >
-              Reviews ({product.reviews})
-            </button>
-          </div>
-        </div>
+  <button
+    className={`px-4 py-2 text-black transition duration-300 ${
+      activeTab === "reviews"
+        ? "text-[#266bf9] border-b-2 border-[#266bf9]"
+        : "hover:text-[#266bf9]"
+    }`}
+    onClick={() => setActiveTab("reviews")}
+  >
+    Reviews ({product.reviews})
+  </button>
+</div>
+
 
         {/* Divider */}
         <hr
@@ -152,7 +149,7 @@ const TabDetailProduct = () => {
               <img
                 src={comment.image}
                 alt="User"
-                className="w-[90px] h-[90px] mb-4 md:mr-4 md:mb-0" // Thêm mb-4 cho kích thước nhỏ
+                className="w-[90px] h-[90px] mb-4 md:mr-4 md:mb-0" 
               />
               <div className="flex-1">
                 <div className="flex justify-between items-center">
@@ -177,7 +174,7 @@ const TabDetailProduct = () => {
                     <img
                       src="https://via.placeholder.com/120"
                       alt="User Reply"
-                      className="w-[90px] h-[90px] mb-4 md:mr-4 md:mb-0" // Thêm mb-4 cho kích thước nhỏ
+                      className="w-[90px] h-[90px] mb-4 md:mr-4 md:mb-0" 
                     />
                     <div className="flex-1">
                       <div className="flex items-center justify-between">

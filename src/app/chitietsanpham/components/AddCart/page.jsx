@@ -1,9 +1,9 @@
 "use client";
-import { cartState } from "../../cart/cartState";
+import { cartState } from "../../../cart/cartState";
 import Slider from "react-slick";
-import { addCart } from "../../cart/cartState";
+import { addCart } from "../../../cart/cartState";
 import React, { useState } from "react";
-import "../../globals.css";
+import "../../../globals.css";
 import { CiHeart } from "react-icons/ci";
 import { HiArrowPathRoundedSquare } from "react-icons/hi2";
 import { MdOutlineShoppingBag } from "react-icons/md";

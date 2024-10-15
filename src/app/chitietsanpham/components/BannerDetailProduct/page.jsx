@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
-import "../../globals.css";
-
+import "../../../globals.css";
 const product = {
     id: "Ch-256xl",
     name: "Modern Smart Phone",
