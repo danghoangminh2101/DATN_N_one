@@ -10,6 +10,6 @@
 // } from "@fortawesome/free-solid-svg-icons";
 // import Link from "next/link";
 // const cx = classNames.bind(styles);
-export default function Home() {
+export default function index() {
   return <h1>xin chao</h1>;
 }
