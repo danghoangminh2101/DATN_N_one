@@ -1,136 +1,146 @@
-import React from "react";
-import Image from 'next/image';
+import type { NextPage } from "next";
+import Image from "next/image";
 
-export default function LoginSection() {
+const Test: NextPage = () => {
   return (
-    <div className="w-full bg-white h-auto min-h-screen overflow-y-auto text-center text-[55px] text-white font-['Roboto_Condensed']">
-      {/* Background Section */}
-      <div className="relative w-full bg-gray-200 h-[452px]">
-        <div className="absolute inset-0 bg-[url('/background@3x.png')] bg-cover bg-no-repeat bg-top">
-          <div className="absolute inset-0 bg-gray-300 w-full"></div>
-        </div>
-        <div className="absolute w-full top-[107px] h-[97.4px]">
-          <b className="tracking-[-1.1px] uppercase flex items-center justify-center">
-            Log In
-          </b>
-          <nav className="w-full text-base mt-4">
-            <div className="flex justify-center gap-2">
-              <b className="uppercase">Home</b>
-              <span>:</span>
-              <b className="uppercase">Log In</b>
-            </div>
-          </nav>
-        </div>
-      </div>
-
-      {/* Main Content Section */}
-      <div className="relative mx-auto w-full max-w-4xl text-left text-sm text-gray-100">
-        {/* Main Image */}
-        <Image
-          className="absolute -top-[74px] left-0 w-[60%] h-auto object-contain"
-          alt="Main"
-          src="/image@2x.png"
-          width={800}
-          height={789}
-        />
-
-        {/* Form Section */}
-        <section className="relative w-full max-w-xl mx-auto mt-[579px] bg-[#f6f2ec] p-5 md:p-10 rounded-lg">
+    <div className="w-full relative [background:linear-gradient(#fff,_#fff),_#fff] h-[1640px] overflow-y-auto text-left text-[15px] text-[#7a7373] font-['Roboto_Condensed']">
+      <div className="absolute top-[0px] left-[calc(50%_-_960px)] w-[1920px] h-[1872px] overflow-hidden">
+        <div className="absolute top-[579px] left-[calc(50%_-_582px)] w-[1100.8px] h-[641.1px]">
           <Image
-            className="hidden md:block absolute inset-y-0 left-0 w-[50%] object-cover"
-            alt="Side"
-            src="/image1@2x.png"
-            width={570}
-            height={700}
+            className="absolute top-[-74px] left-[-2px] w-[802.5px] h-[789.8px] overflow-hidden object-contain"
+            alt=""
+            src="/image@2x.png"
+            width={802}
+            height={789}
           />
-
-          <div className="relative w-full border-b border-[#ebe3d9] pb-5 text-[35px] text-gray-200">
-            <b className="uppercase">Welcome</b>
-            <div className="mt-4 flex gap-4">
-              <button className="w-20 h-10 bg-blue-500 text-white uppercase text-sm">
-                Log In
-              </button>
-              <button className="w-28 h-10 bg-white border border-blue-500 text-blue-500 uppercase text-sm">
-                Register
-              </button>
+          <div className="absolute w-[51.78%] top-[22px] right-[6.36%] left-[41.86%] bg-[#f6f2ec] h-[702.7px]">
+            <Image
+              className="absolute h-full top-[0px] bottom-[0px] left-[0px] max-h-full w-[570px] object-cover"
+              alt=""
+              src="/image1@2x.png"
+              width={570}
+              height={702}
+            />
+            <div className="absolute w-[calc(100%_-_120px)] top-[52px] right-[60px] left-[60px] border-[#ebe3d9] border-b-[1px] border-solid box-border h-[87px] text-[35px] text-[#1e1d1d]">
+              <b className="absolute top-[0px] left-[0px] tracking-[-0.7px] uppercase flex items-center w-[178.2px] h-[39px]">
+                Welcome
+              </b>
+              <div className="absolute h-[calc(100%_-_46px)] top-[26px] bottom-[20px] left-[234.4px] w-[215.6px] text-center text-[16px] text-[#fff]">
+                <div className="absolute top-[calc(50%_-_20.5px)] left-[0px] bg-[#0004fc] w-[88.4px] h-[41px] overflow-hidden">
+                  <div className="absolute top-[12.5px] left-[calc(50%_-_29.1px)] w-[58.1px] h-[17px]">
+                    <div className="absolute top-[0px] left-[calc(50%_-_29.05px)] tracking-[0.64px] leading-[30px] uppercase font-medium flex items-center justify-center w-[58.5px] h-[17px]">
+                      Log In
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute top-[calc(50%_-_20.5px)] left-[98.4px] bg-[#fff] w-[117.2px] h-[41px] overflow-hidden text-[#0004fc]">
+                  <div className="absolute top-[12.5px] left-[calc(50%_-_43.5px)] w-[86.9px] h-[17px]">
+                    <div className="absolute top-[0px] left-[calc(50%_-_43.45px)] tracking-[0.64px] leading-[30px] uppercase font-medium flex items-center justify-center w-[87.3px] h-[17px]">
+                      Register
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <p className="mt-4 uppercase font-medium">Sign in your Boskery account</p>
-
-          {/* Sign-in Form */}
-          <form className="mt-5 space-y-4">
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-3 border border-[#ebe3d9] rounded"
-              />
-              <img
-                className="absolute top-1/2 left-3 transform -translate-y-1/2 w-4 h-4"
-                alt="email-icon"
+            <div className="absolute top-[104px] left-[60px] tracking-[-0.3px] uppercase font-medium flex items-center w-[248.7px] h-[17px]">
+              Sign in your Boskery account
+            </div>
+            <div className="absolute w-[calc(100%_-_120px)] top-[159px] right-[60px] left-[60px] h-[281px] text-[14px] font-['Plus_Jakarta_Sans']">
+              <div className="absolute w-full top-[0px] right-[0px] left-[0px] bg-[#fff] border-[#ebe3d9] border-[1px] border-solid box-border h-[55px] overflow-hidden text-[#9ca3af]">
+                <div className="absolute w-[calc(100%_-_68px)] top-[19.5px] right-[21px] left-[47px] h-[16px] overflow-hidden">
+                  <div className="absolute top-[0px] left-[0px] tracking-[-0.28px] flex items-center w-[65px] h-[16px]">
+                    Your Email
+                  </div>
+                </div>
+              </div>
+              <Image
+                className="absolute top-[35px] left-[21px] w-[15px] h-[15px] overflow-hidden"
+                alt=""
                 src="/icon.svg"
+                width={15}
+                height={15}
               />
-            </div>
-
-            <div className="relative">
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-3 border border-[#ebe3d9] rounded"
-              />
-              <img
-                className="absolute top-1/2 left-3 transform -translate-y-1/2 w-4 h-4"
-                alt="password-icon"
+              <div className="absolute w-full top-[70px] right-[0px] left-[0px] bg-[#fff] border-[#ebe3d9] border-[1px] border-solid box-border h-[55px] overflow-hidden text-[#9ca3af]">
+                <div className="absolute w-[calc(100%_-_68px)] top-[19.5px] right-[21px] left-[47px] h-[16px] overflow-hidden">
+                  <div className="absolute top-[0px] left-[0px] tracking-[-0.28px] flex items-center w-[62.9px] h-[16px]">
+                    Password
+                  </div>
+                </div>
+              </div>
+              <Image
+                className="absolute top-[105px] left-[21px] w-[15px] h-[15px] overflow-hidden"
+                alt=""
                 src="/icon1.svg"
+                width={15}
+                height={15}
               />
+              <div className="absolute h-[5.69%] w-[4.44%] top-[31.85%] right-[4.44%] bottom-[62.46%] left-[91.11%] text-[16px] font-['Font_Awesome_5_Free']">
+                <div className="absolute top-[0px] left-[0px] leading-[16px] flex items-center w-[20.3px] h-[16px]">
+                  
+                </div>
+              </div>
+              <div className="absolute top-[141px] right-[0px] w-[109.1px] h-[16px] text-right">
+                <div className="absolute top-[0px] right-[-6.5px] tracking-[-0.28px] capitalize flex items-center w-[115.6px] h-[16px]">
+                  Forgot password?
+                </div>
+              </div>
+              <div className="absolute top-[258px] left-[0px] w-[115.5px] h-[16px]">
+                <div className="absolute top-[2px] left-[0px] bg-[#fff] border-[#ebe3d9] border-[1px] border-solid box-border w-[16px] h-[16px]" />
+                <div className="absolute top-[0px] left-[26px] tracking-[-0.28px] capitalize flex items-center w-[93.8px] h-[16px]">
+                  Remember me
+                </div>
+              </div>
+              <div className="absolute w-full top-[calc(50%_+_44.5px)] right-[0px] left-[0px] bg-[#0004fc] h-[55px] overflow-hidden text-center text-[12px] text-[#fff] font-['Roboto_Condensed']">
+                <b className="absolute top-[calc(50%_-_6px)] left-[204.5px] tracking-[-0.32px] leading-[16px] uppercase flex items-center justify-center w-[39.7px] h-[14px]">
+                  Log In
+                </b>
+              </div>
             </div>
-
-            <div className="flex justify-between items-center">
-              <label className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                Remember me
-              </label>
-              <a href="#" className="text-blue-500">Forgot password?</a>
-            </div>
-
-            <button className="w-full p-3 bg-blue-500 text-white uppercase text-sm">
-              Log In
-            </button>
-          </form>
-        </section>
-
-        {/* Footer */}
-        <footer className="mt-10 border-t border-[#ebe3d9] pt-5 text-center">
-          <p>
-            Don’t have an account?{' '}
-            <a href="#" className="text-blue-500">Register</a>
-          </p>
-          <p className="mt-4">Or sign in with</p>
-          <div className="mt-4 flex justify-center gap-5">
-            <div className="bg-white w-14 h-14 flex justify-center items-center">
-              <img
-                className="w-6 h-6 object-cover"
-                alt="Google icon"
-                src="/image2@2x.png"
-              />
-            </div>
-            <div className="bg-white w-14 h-14 flex justify-center items-center">
-              <img
-                className="w-6 h-6 object-cover"
-                alt="Facebook icon"
-                src="/image3@2x.png"
-              />
-            </div>
-            <div className="bg-white w-14 h-14 flex justify-center items-center">
-              <img
-                className="w-6 h-6 object-cover"
-                alt="Twitter icon"
-                src="/image4@2x.png"
-              />
+            <div className="absolute w-[calc(100%_-_120px)] top-[463px] right-[60px] left-[60px] border-[#ebe3d9] border-t-[1px] border-solid box-border h-[179px] text-center">
+              <div className="absolute w-full top-[28px] right-[0px] left-[0px] h-[17px]">
+                <div className="absolute top-[0px] left-[calc(50%_-_135.5px)] tracking-[-0.3px] uppercase font-medium flex items-center justify-center w-[197.1px] h-[17px]">{`Don't have an account? `}</div>
+                <div className="absolute top-[0px] left-[calc(50%_+_61.2px)] w-[74.3px] h-[17px] text-[#0004fc]">
+                  <div className="absolute top-[0px] left-[calc(50%_-_37.15px)] tracking-[-0.3px] uppercase font-medium flex items-center justify-center w-[74.6px] h-[17px]">
+                    Register
+                  </div>
+                </div>
+              </div>
+              <div className="absolute top-[67px] left-[calc(50%_-_45.4px)] text-[14px] tracking-[-0.28px] capitalize font-['Plus_Jakarta_Sans'] flex items-center justify-center w-[91.9px] h-[16px]">
+                Or sign in with
+              </div>
+              <div className="absolute top-[calc(50%_+_33.5px)] left-[calc(50%_-_99px)] bg-[#fff] w-[56px] h-[56px]">
+                <Image
+                  className="absolute top-[calc(50%_-_12px)] left-[calc(50%_-_12px)] w-[24px] h-[24px] overflow-hidden object-cover"
+                  alt=""
+                  src="/image2@2x.png"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <div className="absolute top-[calc(50%_+_33.5px)] left-[calc(50%_-_28px)] bg-[#fff] w-[56px] h-[56px]">
+                <Image
+                  className="absolute top-[calc(50%_-_12px)] left-[calc(50%_-_12px)] w-[24px] h-[24px] overflow-hidden object-cover"
+                  alt=""
+                  src="/image3@2x.png"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <div className="absolute top-[calc(50%_+_33.5px)] left-[calc(50%_+_43px)] bg-[#fff] w-[56px] h-[56px]">
+                <Image
+                  className="absolute top-[calc(50%_-_12px)] left-[calc(50%_-_12px)] w-[24px] h-[24px] overflow-hidden object-cover"
+                  alt=""
+                  src="/image4@2x.png"
+                  width={24}
+                  height={24}
+                />
+              </div>
             </div>
           </div>
-        </footer>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Test;  
