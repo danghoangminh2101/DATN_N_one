@@ -1,6 +1,8 @@
 // import Link from "next/link";
 // import classNames from "classnames/bind";
 
+import TrangChu from "./trangChu/page";
+
 // import styles from "./home.module.css";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
@@ -11,5 +13,5 @@
 // import Link from "next/link";
 // const cx = classNames.bind(styles);
 export default function index() {
-  return <h1>xin chao</h1>;
+  return <TrangChu/> ;
 }
