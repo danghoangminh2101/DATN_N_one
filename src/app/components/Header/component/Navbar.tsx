@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 py-3">
+    <nav className="bg-blue-600 py-3 h-[50px]">
       <div className="container mx-auto flex justify-center">
         <ul className="flex space-x-6 text-white uppercase text-sm font-medium">
           <li className="relative group">

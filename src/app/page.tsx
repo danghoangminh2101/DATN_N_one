@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import Link from "next/link";
 // import Link from "next/link";
 // import classNames from "classnames/bind";
@@ -13,5 +13,6 @@ import Link from "next/link";
 // import Link from "next/link";
 // const cx = classNames.bind(styles);
 export default function Home() {
-  return <h1>xin chao</h1>;
+  return <>
+  </>
 }
