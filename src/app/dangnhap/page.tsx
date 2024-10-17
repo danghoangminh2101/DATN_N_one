@@ -1,112 +1,113 @@
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
-const LoginPage = () => {
+const Home: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="w-full bg-[#1e1d1d] text-white py-8 px-4 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Log In</h1>
-        <nav className="text-sm sm:text-base">
-          <span className="mr-2">Home</span>
-          <span className="mx-2">:</span>
-          <span className="ml-2">Log In</span>
-        </nav>
-      </header>
+    <div
+      className="w-full relative bg-white min-h-screen overflow-y-auto text-center text-[#fff] font-['Roboto_Condensed']"
+    >
+      {/* Background Header */}
+      <div className="relative w-full bg-[#1e1d1d] h-[452px]">
+        <div className="absolute inset-0 bg-cover bg-no-repeat bg-top" style={{ backgroundImage: `url('/public/background@3x.png')` }}>
+          <div className="absolute inset-0 bg-[rgba(30,29,29,0.8)]"></div>
+        </div>
+
+        {/* Login Button */}
+        <div className="relative w-full mt-[107px] text-center">
+          <b className="text-4xl md:text-5xl uppercase">Log In</b>
+
+          {/* Home & Login Navigation */}
+          <div className="mt-6 text-sm md:text-base">
+            <span className="uppercase">Home</span> <span className="mx-2">:</span> <span className="uppercase">Log In</span>
+          </div>
+        </div>
+      </div>
 
       {/* Main Content */}
-      <main className="flex-grow bg-white">
-        <div className="container mx-auto px-4 py-8 md:py-16">
-          <div className="max-w-4xl mx-auto bg-[#f6f2ec] rounded-lg overflow-hidden shadow-lg">
-            <div className="md:flex">
-              {/* Left Side - Image */}
-              <div className="md:w-1/2 relative h-64 md:h-auto">
-                <Image
-                  src="/image1.png"
-                  alt="Login background"
-                  layout="fill"
-                  objectFit="cover"
-                />
+      <div className="relative mx-auto mt-8 max-w-6xl px-4 lg:px-0 flex flex-col lg:flex-row items-start">
+        {/* Left Image */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <Image
+            className="object-contain"
+            alt="Background"
+            src="/public/image@2x.png"
+            width={802}
+            height={790}
+            layout="intrinsic"
+          />
+        </div>
+
+        {/* Login Form Section */}
+        <div className="w-full lg:w-1/2 bg-[#f4f4f4] border-[#9f9f9f] border-[1px] p-8 mt-8 lg:mt-0">
+          <div className="border-b-[1px] border-[#ebe3d9] pb-8 text-center">
+            <b className="text-xl md:text-3xl uppercase">Welcome</b>
+
+            {/* Log In / Register Buttons */}
+            <div className="mt-4 flex justify-center space-x-4">
+              <button className="bg-[#0004fc] text-white py-2 px-4 uppercase">Log In</button>
+              <button className="bg-white text-[#0004fc] py-2 px-4 uppercase border border-[#0004fc]">Register</button>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="mt-8">
+            <p className="uppercase font-medium text-center">Sign in your Boskery account</p>
+
+            {/* Email Input */}
+            <div className="mt-6">
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full border-[#ebe3d9] border-[1px] p-4 bg-white text-gray-700"
+              />
+            </div>
+
+            {/* Password Input */}
+            <div className="mt-6">
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full border-[#ebe3d9] border-[1px] p-4 bg-white text-gray-700"
+              />
+            </div>
+
+            {/* Forgot Password */}
+            <div className="text-right mt-4">
+              <a href="#" className="text-sm text-[#7a7373]">Forgot password?</a>
+            </div>
+
+            {/* Remember Me Checkbox */}
+            <div className="flex items-center mt-4">
+              <input type="checkbox" id="rememberMe" className="mr-2" />
+              <label htmlFor="rememberMe" className="text-[#7a7373]">Remember me</label>
+            </div>
+
+            {/* Log In Button */}
+            <button className="w-full bg-[#0004fc] text-white py-4 mt-8 uppercase">Log In</button>
+          </div>
+
+          {/* Register Section */}
+          <div className="mt-12 border-t-[1px] border-[#ebe3d9] pt-8 text-center">
+            <p className="uppercase">Don’t have an account? <a href="#" className="text-[#0004fc]">Register</a></p>
+            <p className="mt-6">Or sign in with</p>
+
+            {/* Social Media Login */}
+            <div className="flex justify-center space-x-8 mt-6">
+              <div className="bg-white w-[56px] h-[56px] flex items-center justify-center">
+                <Image src="/public/image2@2x.png" alt="Social" width={24} height={24} />
               </div>
-
-              {/* Right Side - Login Form */}
-              <div className="md:w-1/2 p-8">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6">Welcome</h2>
-                <p className="text-sm mb-8">Sign in to your Boskery account</p>
-
-                <form>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                      Your Email
-                    </label>
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="email"
-                      type="email"
-                      placeholder="Your Email"
-                    />
-                  </div>
-                  <div className="mb-6 relative">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                      Password
-                    </label>
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                      id="password"
-                      type="password"
-                      placeholder="******************"
-                    />
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                      <FontAwesomeIcon icon={faEye} className="text-gray-700" />
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center">
-                      <input id="remember_me" type="checkbox" className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                      <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                        Remember me
-                      </label>
-                    </div>
-                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-                      Forgot Password?
-                    </a>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <button
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      type="button"
-                    >
-                      Log In
-                    </button>
-                  </div>
-                </form>
-
-                <div className="mt-8 pt-8 border-t border-gray-300 text-center">
-                  <p className="text-sm mb-4">{`Don't have an account? `}
-                    <a href="#" className="font-bold text-blue-500 hover:text-blue-800">Register</a>
-                  </p>
-                  <p className="text-sm mb-4">Or sign in with</p>
-                  <div className="flex justify-center space-x-4">
-                    {['image2.png', 'image3.png', 'image4.png'].map((src, index) => (
-                      <div key={index} className="bg-white p-2 rounded-full shadow">
-                        <Image
-                          src={`/${src}`}
-                          alt={`Social login ${index + 1}`}
-                          width={24}
-                          height={24}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="bg-white w-[56px] h-[56px] flex items-center justify-center">
+                <Image src="/public/image3@2x.png" alt="Social" width={24} height={24} />
+              </div>
+              <div className="bg-white w-[56px] h-[56px] flex items-center justify-center">
+                <Image src="/public/image4@2x.png" alt="Social" width={24} height={24} />
               </div>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default Home;
