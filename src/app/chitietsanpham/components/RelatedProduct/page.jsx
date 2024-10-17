@@ -14,7 +14,7 @@ const RelatedProduct = () => {
   const products = [
     {
       id: 1,
-      image: "https://via.placeholder.com/257x261",
+      image: "https://via.placeholder.com/270x274",
       name: "Modern Smart Phone",
       price: "$38.50",
       sale: "Sale 10%",
@@ -23,7 +23,7 @@ const RelatedProduct = () => {
     },
     {
       id: 2,
-      image: "https://via.placeholder.com/257x261",
+      image: "https://via.placeholder.com/270x274",
       name: "Bluetooth Headphone",
       price: "$38.50",
       sale: "Sale 10%",
@@ -32,7 +32,7 @@ const RelatedProduct = () => {
     },
     {
       id: 3,
-      image: "https://via.placeholder.com/257x261",
+      image: "https://via.placeholder.com/270x274",
       name: "Smart Music Box",
       price: "$38.50",
       sale: "Sale",
@@ -41,7 +41,7 @@ const RelatedProduct = () => {
     },
     {
       id: 4,
-      image: "https://via.placeholder.com/257x261",
+      image: "https://via.placeholder.com/270x274",
       name: "Air Pods 256K Black",
       price: "$38.50",
       sale: "Sale",
