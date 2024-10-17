@@ -7,39 +7,42 @@ const Header = () => {
   return (
     <header>
  <div className="bg-gray-900 text-gray-300 py-2">
-  <div className="container mx-auto flex justify-between items-center px-4">
+  <div className="container mx-auto flex justify-between items-center px-4 flex-wrap md:flex-nowrap">
     {/* Left section */}
-    <div className="text-sm">
+    <div className="text-xs sm:text-sm text-center md:text-left w-full md:w-auto mb-2 md:mb-0">
       World Wide Completely Free Returns and Shipping
     </div>
+
     {/* Right section */}
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center space-x-4 w-full md:w-auto justify-center md:justify-end">
       <div className="flex items-center space-x-2">
         {/* Phone icon */}
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
           <path d="M2.003 5.884A16.088 16.088 0 0010 14a16.088 16.088 0 007.997-8.116.75.75 0 00-.585-.926l-3.068-.513a.75.75 0 00-.857.454L12.1 6.698a.75.75 0 01-.693.45h-.002a9.759 9.759 0 01-2.708-.487l-.027-.01a9.758 9.758 0 01-1.843-.92.75.75 0 01-.225-.866L6.588 4.007a.75.75 0 00-.62-.454l-3.068.513a.75.75 0 00-.897.818z" />
         </svg>
-        <span>+012 3456 789</span>
+        <span className="text-xs sm:text-sm">+012 3456 789</span>
       </div>
+
       <div className="flex items-center space-x-2">
         {/* Email icon */}
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
           <path d="M2.94 3.44A2.5 2.5 0 015.5 2h9a2.5 2.5 0 012.56 1.44L10 9.48 2.94 3.44z" />
           <path d="M18 8.82l-6.74 4.26a2.5 2.5 0 01-2.52 0L2 8.82V14a2.5 2.5 0 002.5 2.5h11A2.5 2.5 0 0018 14V8.82z" />
         </svg>
-        <span>demo@example.com</span>
+        <span className="text-xs sm:text-sm">demo@example.com</span>
       </div>
+
       <div className="flex items-center space-x-2">
         {/* Account icon */}
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M10 2a5 5 0 100 10A5 5 0 0010 2zm-3 5a3 3 0 116 0 3 3 0 01-6 0zm3 7c-3.185 0-6 1.19-6 2.5V17a1 1 0 001 1h10a1 1 0 001-1v-.5c0-1.31-2.815-2.5-6-2.5z" clipRule="evenodd" />
         </svg>
-        <a href="#" className="text-gray-300 hover:text-white">Account</a>
+        <a href="#" className="text-gray-300 hover:text-white text-xs sm:text-sm">Account</a>
       </div>
     </div>
   </div>
-
 </div>
+
 <div className="bg-gray-900 text-gray-300 py-3">
   <div className="container mx-auto flex justify-between items-center px-4">
     {/* Left section (Logo) */}
