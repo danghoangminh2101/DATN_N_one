@@ -1,106 +1,89 @@
-import Image from 'next/image';
-import React from 'react';
-
-const Home: React.FC = () => {
+import React from "react";
+const LoginPage = () => {
   return (
-    <div
-      className="w-full relative bg-white min-h-screen overflow-y-auto text-center text-[#fff] font-['Roboto_Condensed']"
-    >
-      {/* Background Header */}
-      <div className="relative w-full bg-[#1e1d1d] h-[452px]">
-        <div className="absolute inset-0 bg-cover bg-no-repeat bg-top" style={{ backgroundImage: `url('/public/background@3x.png')` }}>
-          <div className="absolute inset-0 bg-[rgba(30,29,29,0.8)]"></div>
-        </div>
+    <div>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <link rel="stylesheet" href="global.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400&display=swap" />
 
-        {/* Login Button */}
-        <div className="relative w-full mt-[107px] text-center">
-          <b className="text-4xl md:text-5xl uppercase">Log In</b>
-
-          {/* Home & Login Navigation */}
-          <div className="mt-6 text-sm md:text-base">
-            <span className="uppercase">Home</span> <span className="mx-2">:</span> <span className="uppercase">Log In</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="relative mx-auto mt-8 max-w-6xl px-4 lg:px-0 flex flex-col lg:flex-row items-start">
-        {/* Left Image */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <Image
-            className="object-contain"
-            alt="Background"
-            src="/public/image@2x.png"
-            width={802}
-            height={790}
-            layout="intrinsic"
-          />
-        </div>
-
-        {/* Login Form Section */}
-        <div className="w-full lg:w-1/2 bg-[#f4f4f4] border-[#9f9f9f] border-[1px] p-8 mt-8 lg:mt-0">
-          <div className="border-b-[1px] border-[#ebe3d9] pb-8 text-center">
-            <b className="text-xl md:text-3xl uppercase">Welcome</b>
-
-            {/* Log In / Register Buttons */}
-            <div className="mt-4 flex justify-center space-x-4">
-              <button className="bg-[#0004fc] text-white py-2 px-4 uppercase">Log In</button>
-              <button className="bg-white text-[#0004fc] py-2 px-4 uppercase border border-[#0004fc]">Register</button>
-            </div>
-          </div>
-
-          {/* Form */}
-          <div className="mt-8">
-            <p className="uppercase font-medium text-center">Sign in your Boskery account</p>
-
-            {/* Email Input */}
-            <div className="mt-6">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full border-[#ebe3d9] border-[1px] p-4 bg-white text-gray-700"
-              />
-            </div>
-
-            {/* Password Input */}
-            <div className="mt-6">
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full border-[#ebe3d9] border-[1px] p-4 bg-white text-gray-700"
-              />
-            </div>
-
-            {/* Forgot Password */}
-            <div className="text-right mt-4">
-              <a href="#" className="text-sm text-[#7a7373]">Forgot password?</a>
-            </div>
-
-            {/* Remember Me Checkbox */}
-            <div className="flex items-center mt-4">
-              <input type="checkbox" id="rememberMe" className="mr-2" />
-              <label htmlFor="rememberMe" className="text-[#7a7373]">Remember me</label>
-            </div>
-
-            {/* Log In Button */}
-            <button className="w-full bg-[#0004fc] text-white py-4 mt-8 uppercase">Log In</button>
-          </div>
-
-          {/* Register Section */}
-          <div className="mt-12 border-t-[1px] border-[#ebe3d9] pt-8 text-center">
-            <p className="uppercase">Don’t have an account? <a href="#" className="text-[#0004fc]">Register</a></p>
-            <p className="mt-6">Or sign in with</p>
-
-            {/* Social Media Login */}
-            <div className="flex justify-center space-x-8 mt-6">
-              <div className="bg-white w-[56px] h-[56px] flex items-center justify-center">
-                <Image src="/public/image2@2x.png" alt="Social" width={24} height={24} />
+      <div className="w-full relative bg-gradient-to-b from-white to-white h-[1640px] overflow-y-auto text-center text-[55px] text-white font-['Roboto_Condensed']">
+        <div className="absolute top-0 left-0 w-full h-[1223.1px]">
+          {/* Top Section */}
+          <div className="absolute w-full top-0 right-0 left-0 bg-[#1e1d1d] h-[452px]">
+            <div className="absolute w-full h-full bg-[rgba(30,29,29,0.8)]" />
+            <div className="absolute w-full top-[107px] right-0 left-0 h-[97.4px]">
+              <b className="absolute top-[1px] left-1/2 transform -translate-x-1/2 tracking-[-1.1px] uppercase flex items-center justify-center w-[183.2px] h-[62px]">
+                Log In
+              </b>
+              <div className="absolute w-full top-[75px] h-[22.4px] text-[16px]">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-[113px] h-[22.4px] flex justify-between">
+                  <b className="tracking-[-0.32px] uppercase">Home</b>
+                  <b className="tracking-[-0.32px] uppercase">:</b>
+                  <b className="tracking-[-0.32px] uppercase">Log In</b>
+                </div>
               </div>
-              <div className="bg-white w-[56px] h-[56px] flex items-center justify-center">
-                <Image src="/public/image3@2x.png" alt="Social" width={24} height={24} />
+            </div>
+          </div>
+
+          {/* Main Form Section */}
+          <div className="absolute top-[582px] left-[calc(50%_-_534px)] w-[1100.8px] h-[641.1px] text-left text-[15px] text-[#7a7373]">
+            <img
+              src="https://template-1-food.vercel.app/_next/image?url=%2Fimages%2Flogin.png&w=1920&q=75"
+            />
+            <div className="absolute top-[22px] right-[6.36%] left-[41.86%] bg-[#f6f6f6] border-[#e6e6e6] border-[1px] h-[702.7px]">
+              <div className="absolute w-[calc(100%-120px)] top-[52px] right-[60px] left-[60px] border-b-[1px] border-[#ecebeb] text-[35px] text-[#1e1d1d]">
+                <b className="uppercase">Welcome</b>
+                <div className="absolute left-[234.4px] w-[215.6px] flex justify-between text-center text-[16px] text-white">
+                  <div className="bg-[#0004fc] w-[88.4px] h-[41px] flex items-center justify-center uppercase font-medium">
+                    Log In
+                  </div>
+                  <div className="bg-white w-[117.2px] h-[41px] flex items-center justify-center text-[#0004fc] uppercase font-medium">
+                    Register
+                  </div>
+                </div>
               </div>
-              <div className="bg-white w-[56px] h-[56px] flex items-center justify-center">
-                <Image src="/public/image4@2x.png" alt="Social" width={24} height={24} />
+
+              <div className="absolute top-[104px] left-[60px] uppercase font-medium">
+                Sign in your Boskery account
+              </div>
+
+              <div className="absolute top-[159px] w-[calc(100%-120px)] right-[60px] left-[60px]">
+                {/* Email Input */}
+                <div className="bg-white border-[#ebe3d9] border-[1px] h-[55px] flex items-center px-4">
+                  <span>Your Email</span>
+                </div>
+
+                {/* Password Input */}
+                <div className="bg-white border-[#ebe3d9] border-[1px] h-[55px] mt-4 flex items-center px-4 autofill:">
+                  <span>Password</span>
+                </div>
+
+                <div className="flex justify-between mt-4">
+                  <div className="text-right">Forgot password?</div>
+                  <div className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span>Remember me</span>
+                  </div>
+                </div>
+
+                <div className="bg-[#0004fc] h-[55px] flex justify-center items-center text-white mt-6 uppercase">
+                  Log In
+                </div>
+              </div>
+
+              <div className="absolute w-[calc(100%-120px)] top-[463px] right-[60px] left-[60px] border-t-[1px] border-[#ebe3d9] text-center">
+                <div className="mt-6 uppercase font-medium">
+                  Don’t have an account? <span className="text-[#0004fc]">Register</span>
+                </div>
+                <div className="mt-4 text-[14px] capitalize">Or sign in with</div>
+
+                <div className="flex justify-center space-x-4 mt-6">
+                  <img className="w-[56px] h-[56px]" alt="Icon" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c8a08d75cd80cc317bf3581df45fd930c49471a864e0023fdf87874a869a984" />
+                  <img className="w-[56px] h-[56px]" alt="Icon" src="https://cdn.builder.io/api/v1/image/assets/TEMP/d0a47f7776e7735223186d000a4ec1939fb27fdba571de492d4f3df9e4792ce6" />
+                  <img className="w-[56px] h-[56px]" alt="Icon" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f18d7fb494dad03c7cdf7ef82c63d06daff11ac46d15657d16dd0bbdea292d5e" />
+                </div>
               </div>
             </div>
           </div>
@@ -110,4 +93,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default LoginPage;
