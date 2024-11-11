@@ -1,51 +1,113 @@
+'use client';
+import Link from "next/link";
+import { useState } from "react";
+
 const Navbar = () => {
+  const [isProductHovered, setIsProductHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsProductHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsProductHovered(false);
+  };
+
   return (
-    <nav className="bg-blue-600 py-3">
-      <div className="container mx-auto flex justify-center">
-        <ul className="flex space-x-6 text-white uppercase text-sm font-medium">
-          <li className="relative group">
-            <a href="#" className="hover:underline flex items-center">
-              Pages
-              <svg className="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </a>
-            <div className="absolute w-[1000px] left-0 mt-1 p-6 bg-white shadow-lg text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-8 group-hover:translate-y-0 z-10">
-              <div className="grid grid-cols-3 gap-8">
-                <div>
-                  <h4 className="font-bold mb-2">Inner Pages</h4>
-                  <ul>
-                    <li><a href="#" className="block py-1">404 Page</a></li>
-                    <li><a href="#" className="block py-1">Order Tracking</a></li>
-                    <li><a href="#" className="block py-1">Faq Page</a></li>
-                    <li><a href="#" className="block py-1">Coming Soon Page</a></li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-bold mb-2">Other Shop Pages</h4>
-                  <ul>
-                    <li><a href="#" className="block py-1">Cart Page</a></li>
-                    <li><a href="#" className="block py-1">Checkout Page</a></li>
-                    <li><a href="#" className="block py-1">Compare Page</a></li>
-                    <li><a href="#" className="block py-1">Wishlist Page</a></li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-bold mb-2">Related Shop Pages</h4>
-                  <ul>
-                    <li><a href="#" className="block py-1">Account Page</a></li>
-                    <li><a href="#" className="block py-1">Login & Register</a></li>
-                    <li><a href="#" className="block py-1">Empty Cart Page</a></li>
-                    <li><a href="#" className="block py-1">Thank You Page</a></li>
-                  </ul>
+    <nav className="bg-blue-600 py-3 h-[50px]">
+      <div className="w-[80%] mx-auto flex justify-center">
+        <ul className="flex space-x-6 text-white text-sm font-medium">
+          <li><Link href="/">Home</Link></li>
+          <li
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="relative"
+          >
+            <button className="focus:outline-none">
+              Page
+            </button>
+            {isProductHovered && (
+              <div
+                className="absolute left-0 top-full z-20"
+                onMouseEnter={handleMouseEnter} // Keep hover on the dropdown
+                onMouseLeave={handleMouseLeave} // Remove hover when leaving dropdown
+              >
+                <div className="bg-white p-4 shadow-lg rounded-lg">
+                  <div className="w-[500px] px-[1rem]">
+                    <ul className="flex justify-between">
+                      <div className="text-black">
+                        <h3 className="text-[.9rem] text-[#7500CF] mb-[.1rem] font-semibold">
+                          Inner Pages
+                        </h3>
+                        <li className="w-[100%] py-1">
+                          <Link href="/404" className="text-[.8rem] text-black">
+                            404 Page
+                          </Link>
+                        </li>
+                        <li className="w-[100%] py-1">
+                          <Link href="/comingsoon" className="text-[.8rem] text-black">
+                            Comming soon
+                          </Link>
+                        </li>
+                      
+                      </div>
+
+                      <div className="text-black">
+                        <h3 className="text-[.9rem] text-[#7500CF] mb-[.1rem] font-semibold">
+                          Other Pages
+                        </h3>
+                        <li className="w-[100%] py-1">
+                          <Link href="/cart" className="text-[.8rem] text-black">
+                            Cart Page
+                          </Link>
+                        </li>
+                        <li className="w-[100%] py-1">
+                          <Link href="/checkout" className="text-[.8rem] text-black">
+                            Checkout Page
+                          </Link>
+                        </li>
+                        <li className="w-[100%] py-1">
+                          <Link href="/orderTrack" className="text-[.8rem] text-black">
+                            Order Page
+                          </Link>
+                        </li>
+                        <li className="w-[100%] py-1">
+                          <Link href="/orderSuccess" className="text-[.8rem] text-black">
+                            Order Success Page
+                          </Link>
+                        </li>
+                      </div>
+
+                      <div className="text-black">
+                        <h3 className="text-[.9rem] text-[#7500CF] mb-[.1rem] font-semibold">
+                          Related Pages
+                        </h3>
+                        <li className="w-[100%] py-1">
+                          <Link href="/account" className="text-[.8rem] text-black">
+                            Account
+                          </Link>
+                        </li>
+                        <li className="w-[100%] py-1">
+                          <Link href="/dangnhap" className="text-[.8rem] text-black">
+                            Login
+                          </Link>
+                        </li>
+                        <li className="w-[100%] py-1">
+                          <Link href="/dangki" className="text-[.8rem] text-black">
+                            Register
+                          </Link>
+                        </li>
+                      </div>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </li>
-          <li><a href="#" className="hover:underline">About</a></li>
-          <li><a href="#" className="hover:underline">Shop</a></li>
-          <li><a href="#" className="hover:underline">Blog</a></li>
-          <li><a href="#" className="hover:underline">Contact</a></li>
+          <li><Link href="/gioithieu" className="hover:underline">About</Link></li>
+          <li><Link href="/listProduct" className="hover:underline">Shop</Link></li>
+          <li><Link href="" className="hover:underline">Blog</Link></li>
+          <li><Link href="/lienhe" className="hover:underline">Contact</Link></li>
         </ul>
       </div>
     </nav>

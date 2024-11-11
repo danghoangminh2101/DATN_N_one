@@ -26,8 +26,11 @@ const config: Config = {
         '2xl': '1536px',
         'xll':"1600px"
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
   },
-  plugins: [],
+  plugins: [],  
 };
 export default config;
