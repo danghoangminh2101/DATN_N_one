@@ -1,7 +1,9 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AccountInfo from './Commponent/AccountInfo';
 import Order from './Commponent/Order';
+import { User } from './api/user.type';
+import { getUserApi } from './api/user.api';
 
 export default function AccountPage() {
   const items = [
@@ -13,9 +15,23 @@ export default function AccountPage() {
     { id: 'viewedProducts', label: 'Sản phẩm đã xem' },
   ];
  
+  const [listUser,setListUser]=useState<User[]>([]);
+useEffect(()=>{
+const fetchUsers=async()=>{
+  try{
+const responsve=await getUserApi();
+setListUser(responsve.data)
 
+  }catch(e){
+    console.log(e);
+    
+  }
+}
+fetchUsers()
+},[])
   const [selectedItem, setSelectedItem] = useState('accountInfo');
-
+  console.log(listUser);
+  
   const handleItemClick = (item) => {
     setSelectedItem(item);
     // Add any additional logic for when an item is clicked

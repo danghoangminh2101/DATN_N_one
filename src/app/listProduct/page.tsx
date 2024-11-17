@@ -3,11 +3,30 @@ import ProductGrid from "./component/ProductGrid";
 import { FiList } from "react-icons/fi";
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import ProductList from "./component/ProductList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { productApi } from "./api/productApi";
 
 function ListProduct() {
     const [grid, setGrid] = useState(true); // true for grid view, false for list view
-
+    const [listUser,setListUser]=useState([]);
+    useEffect(() => {
+      // Gọi API nội bộ Next.js mà ta vừa tạo
+      const fetchUsers = async () => {
+        try {
+          
+          const res =  await productApi();
+          // const data = await res.json();
+          setListUser(res.data); // Lưu dữ liệu vào state
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        } 
+      };
+  
+      fetchUsers();
+    }, []);
+  
+    console.log(listUser);
+    
     return (
         <div className="w-full min-h-screen px-4 py-6 md:px-8 lg:px-0 lg:w-[90%] xl:w-[80%] mx-auto">
             <div className="flex flex-col lg:flex-row gap-6">
