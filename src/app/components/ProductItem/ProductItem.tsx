@@ -45,7 +45,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       </div>
 
       <h5 className="text-[14px] text-gray-500 font-thin text-center">
-        {product.category || "Category"}
+        {product.category?.name || "Category"}
       </h5>
       <h3 className="text-[16px] font-normal text-center">{product.name}</h3>
       <p className="text-gray-700 text-center text-[18px]">

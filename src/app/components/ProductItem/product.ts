@@ -15,5 +15,8 @@ export interface Product {
   sale?: string;
   image?: string;
   originalPrice?: number;
-  category?: string;
+  category: {
+    id: string;
+    name: string; // Tên danh mục
+  };
 }
