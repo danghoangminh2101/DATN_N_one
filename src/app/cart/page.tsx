@@ -10,12 +10,14 @@ import { useState } from "react";
 import { CartItem } from "../cart/cartItem";
 import classNames from "classnames/bind";
 import { shippingState } from "./shippingState";
+import Swal from "sweetalert2";
 
 interface cart {
   CartItem: CartItem[];
 }
 
 const Cart: React.FC<cart> = () => {
+  const [selectedShipping, setSelectedShipping] = useState<string | null>(null);
   const [cart, setCart] = useRecoilState(cartState);
 
   const handleIncrement = (id) => {
@@ -49,12 +51,14 @@ const Cart: React.FC<cart> = () => {
     setCart([]);
   };
   const setShipping = useSetRecoilState(shippingState);
-
   const handleShippingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedShipping = event.target.value;
-    if (selectedShipping === "standard") {
+    const selectedValue = event.target.value;
+    setSelectedShipping(selectedValue);
+
+    // Cập nhật giá trị giao hàng vào Recoil
+    if (selectedValue === "standard") {
       setShipping(20);
-    } else if (selectedShipping === "express") {
+    } else if (selectedValue === "express") {
       setShipping(30);
     } else {
       setShipping(0);
@@ -66,6 +70,21 @@ const Cart: React.FC<cart> = () => {
     const productTotal = parseFloat(calculateProductTotal());
     return (productTotal + shipping).toFixed(2);
   };
+
+  // Xử lý khi người dùng nhấn nút Proceed to Checkout
+  const handleCheckout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!selectedShipping) {
+      e.preventDefault(); // Ngăn việc chuyển trang
+      Swal.fire({
+        icon: "warning",
+        title: "Vui lòng chọn phương thức giao hàng",
+        text: "Bạn cần chọn một trong hai phương thức giao hàng trước khi tiếp tục.",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#d33",
+      });
+    }
+  };
+
   return (
     <div>
       <div className="breadcrumb-area relative h-[406px] md:h-[300px] sm:h-[260px]">
@@ -300,6 +319,7 @@ const Cart: React.FC<cart> = () => {
             <Link
               href="/checkout"
               className="block font-semibold text-center bg-[#266bf9] hover hover:bg-[#000000] text-white py-2 text-[14px]"
+              onClick={handleCheckout}
             >
               PROCEED TO CHECKOUT
             </Link>
