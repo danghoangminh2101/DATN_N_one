@@ -1,6 +1,10 @@
+"use client";
 import * as React from "react";
 
 export default function MyComponent() {
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
   return (
     <div className="flex flex-col pb-16 bg-white">
       <div className="flex flex-col justify-center items-center px-20 py-40 w-full text-center whitespace-nowrap bg-slate-300 max-md:px-5 max-md:py-24 max-md:max-w-full">
@@ -22,12 +26,20 @@ export default function MyComponent() {
           <div className="text-black basis-auto">Register</div>
         </div>
         <div className="flex flex-col p-20 mt-10 max-w-fullư bg-white bg-opacity- shadow-[0px_0px_6px_rgba(0,0,0,0.1)] text-neutral-500 w-[900px] max-md:px-5">
-          <div className="overflow-hidden px-4 py-5 text-sm whitespace-nowrap border border-gray-200 border-solid max-md:pr-5 max-md:max-w-full">
-            Username
-          </div>
-          <div className="overflow-hidden px-4 py-5 mt-8 text-sm whitespace-nowrap border border-gray-200 border-solid max-md:pr-5 max-md:max-w-full">
-            Password
-          </div>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            className="overflow-hidden px-4 py-5 text-sm whitespace-nowrap border border-gray-200 border-solid max-md:pr-5 max-md:max-w-full"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="overflow-hidden px-4 py-5 mt-8 text-sm whitespace-nowrap border border-gray-200 border-solid max-md:pr-5 max-md:max-w-full"
+          />
           <div className="flex flex-wrap gap-10 mt-12 text-black max-md:mt-10 max-md:mr-0.5 max-md:max-w-full">
             <div className="flex flex-col flex-1">
               <div className="flex gap-1.5 text-base leading-loose">
