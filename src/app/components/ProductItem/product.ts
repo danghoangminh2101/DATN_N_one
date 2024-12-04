@@ -17,6 +17,6 @@ export interface Product {
   originalPrice?: number;
   category: {
     id: string;
-    name: string; // Tên danh mục
+    name: string;
   };
 }
