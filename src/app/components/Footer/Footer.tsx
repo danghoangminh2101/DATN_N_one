@@ -1,4 +1,5 @@
 import React from 'react'
+import { FacebookOutlined, TwitterOutlined, InstagramOutlined } from '@ant-design/icons'
 
 function Footer() {
   return (
@@ -17,16 +18,13 @@ function Footer() {
             </p>
             <div className="flex gap-2 mt-4">
               <a href="#" className="bg-gray-600 p-2 rounded-sm hover:bg-blue-500 transition-colors">
-                <i className="fab fa-facebook-f text-white text-sm" />
+                <FacebookOutlined className="text-white text-sm" />
               </a>
               <a href="#" className="bg-gray-600 p-2 rounded-sm hover:bg-blue-500 transition-colors">
-                <i className="fab fa-tumblr text-white text-sm" />
+                <TwitterOutlined className="text-white text-sm" />
               </a>
               <a href="#" className="bg-gray-600 p-2 rounded-sm hover:bg-blue-500 transition-colors">
-                <i className="fab fa-twitter text-white text-sm" />
-              </a>
-              <a href="#" className="bg-gray-600 p-2 rounded-sm hover:bg-blue-500 transition-colors">
-                <i className="fab fa-instagram text-white text-sm" />
+                <InstagramOutlined className="text-white text-sm" />
               </a>
             </div>
           </div>
