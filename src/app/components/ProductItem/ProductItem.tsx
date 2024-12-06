@@ -58,7 +58,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
         {product.originalPrice && (
           <del className="font-light">{product.originalPrice}</del>
         )}
-        {" - "}
+
         {product.price}
       </p>
 
