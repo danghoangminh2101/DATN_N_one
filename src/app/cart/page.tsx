@@ -179,31 +179,32 @@ const Cart: React.FC<cart> = () => {
             ))}
           </tbody>
         </table>
-        <div className="flex justify-between py-[1rem] mt-4 mb-8">
-          <button className="py-[.4rem] px-[3rem] bg-[#ebebeb] text-[#000000] font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#266bf9] hover:text-white">
+        <div className="flex flex-wrap justify-between py-[1rem] mt-4 mb-8">
+          <button className="py-[0.8rem] px-[3rem] bg-[#ebebeb] text-[#000000] font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#266bf9] hover:text-white w-full mb-[0.5rem] sm:w-auto">
             CONTINUE SHOPPING
           </button>
-          <div className="flex gap-[1rem]">
-            <button className="py-[.4rem] px-[3rem] bg-[#ebebeb] text-[#000000] font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#266bf9] hover:text-white">
+          <div className="flex gap-[1rem] w-full  sm:w-auto flex-wrap">
+            <button className="py-[0.8rem] px-[3rem] bg-[#ebebeb] text-[#000000] font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#266bf9] hover:text-white w-full mb-[0.5rem] sm:w-auto">
               UPDATE SHOPPING CART
             </button>
             <button
               onClick={handleClearCart}
-              className="py-[0.8rem] px-[3rem] bg-[#266bf9] text-white font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#000000] hover:text-white"
+              className="py-[0.8rem] px-[3rem] bg-[#266bf9] text-white font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#000000] hover:text-white mb-[0.5rem]  w-full sm:w-auto"
             >
               CLEAR SHOPPING CART
             </button>
           </div>
         </div>
-        <div className="flex justify-between">
-          <div className="cart-tax w-[30%]  shadow-sm bg-[#ebebeb] px-[2rem] py-[2rem] text-black">
+
+        <div className="flex flex-wrap justify-between py-[2rem] mt-4 mb-8">
+          <div className="cart-tax w-full sm:w-[30%] shadow-sm bg-[#ebebeb] px-[2rem] py-[2rem] text-black mb-[1rem] sm:mb-0">
             <div className="title-wrap">
               <h4 className="font-semibold mb-[1rem] text-[18px]">
                 Estimate Shipping And Tax
               </h4>
             </div>
-            <div className="tax-wrapper ">
-              <p className="mb-[.8rem] text-[16px] text-gray-400 ">
+            <div className="tax-wrapper">
+              <p className="mb-[.8rem] text-[16px] text-gray-400">
                 Enter your destination to get a shipping estimate.
               </p>
               <div className="tax-select-wrapper">
@@ -241,7 +242,7 @@ const Cart: React.FC<cart> = () => {
                   />
                 </div>
                 <button
-                  className="cart-btn-2 mt-[1rem] hover hover:bg-[#000000]"
+                  className="cart-btn-2 mt-[1rem] hover hover:bg-[#000000] w-full text-center block "
                   type="submit"
                 >
                   Get A Quote
@@ -249,7 +250,7 @@ const Cart: React.FC<cart> = () => {
               </div>
             </div>
           </div>
-          <div className="cart-tax w-[30%]  bg-[#ebebeb] shadow-sm h-[100%] px-[2rem] py-[2rem] text-black">
+          <div className="cart-tax w-full sm:w-[30%] bg-[#ebebeb] shadow-sm h-[100%] px-[2rem] py-[2rem] text-black mb-[1rem] sm:mb-0">
             <div className="discount-code-wrapper">
               <div className="title-wrap">
                 <h4 className="font-semibold mb-[1rem] text-[18px]">
@@ -266,7 +267,7 @@ const Cart: React.FC<cart> = () => {
                     className="w-[100%] border border-black py-[.3rem] px-3"
                   />
                   <button
-                    className="cart-btn-2 mt-[1rem] hover hover:bg-[#000000]"
+                    className="cart-btn-2 mt-[1rem] hover hover:bg-[#000000]  w-full text-center block "
                     type="submit"
                   >
                     Apply Coupon
@@ -275,7 +276,7 @@ const Cart: React.FC<cart> = () => {
               </div>
             </div>
           </div>
-          <div className="cart-tax w-[30%] bg-[#ebebeb] shadow-sm h-[100%] px-[2rem] py-[2rem] text-black">
+          <div className="cart-tax w-full sm:w-[30%] bg-[#ebebeb] shadow-sm h-[100%] px-[2rem] py-[2rem] text-black">
             <div className="title-wrap">
               <h4 className="font-semibold text-[18px]">Cart Total</h4>
             </div>

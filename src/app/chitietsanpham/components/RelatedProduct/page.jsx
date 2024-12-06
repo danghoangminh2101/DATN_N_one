@@ -253,20 +253,20 @@ const RelatedProduct = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Hiển thị 4 sản phẩm
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <CustomPrevArrow />, // Custom nút trái
     nextArrow: <CustomNextArrow />, // Custom nút phải
-    centerMode: false, // Đảm bảo không sử dụng chế độ căn giữa
-    centerPadding: "0", // Loại bỏ padding
+    centerMode: false,
+    centerPadding: "0",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          centerMode: false, // Không dùng centerMode
+          centerMode: true,
         },
       },
       {
@@ -274,7 +274,8 @@ const RelatedProduct = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: false, // Không dùng centerMode
+          centerMode: true,
+          centerPadding: "90px",
         },
       },
     ],
