@@ -117,7 +117,7 @@ const Cart: React.FC<cart> = () => {
               <th>ACTION</th>
             </tr>
           </thead>
-          <tbody className="">
+          <tbody>
             {cart.map((item) => (
               <tr key={item.id}>
                 <td className="product-thumbnail w-[150px] ">
@@ -135,7 +135,7 @@ const Cart: React.FC<cart> = () => {
                 </td>
                 <td className="product-price-cart">
                   <span className="amount text-[#3A3A3A] text-[16px]">
-                    {item.price}
+                    ${item.price.toFixed(2)}
                   </span>
                 </td>
                 <td className="product-quantity flex justify-center items-center h-[150px]">
@@ -162,7 +162,7 @@ const Cart: React.FC<cart> = () => {
                   </div>
                 </td>
                 <td className="product-subtotal text-[#3A3A3A] text-[16px]">
-                  ${(item.price * item.quantity).toFixed(2)}{" "}
+                  ${(item.price * item.quantity).toFixed(2)}
                 </td>
                 <td className="product-remove cursor-pointer ">
                   <FontAwesomeIcon
@@ -179,6 +179,7 @@ const Cart: React.FC<cart> = () => {
             ))}
           </tbody>
         </table>
+
         <div className="flex flex-wrap justify-between py-[1rem] mt-4 mb-8">
           <button className="py-[0.8rem] px-[3rem] bg-[#ebebeb] text-[#000000] font-semibold text-[14px] flex justify-center items-center transition-all hover:bg-[#266bf9] hover:text-white w-full mb-[0.5rem] sm:w-auto">
             CONTINUE SHOPPING
