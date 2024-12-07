@@ -4,8 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/app/components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import toastify CSS
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css'; // Import toastify CSS
 import { RecoilRoot } from "recoil";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,7 +33,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-          <ToastContainer position="top-right" autoClose={5000} />
+          {/* <ToastContainer position="top-right" autoClose={5000} /> */}
 
         </RecoilRoot>
       </body>
