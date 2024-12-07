@@ -30,7 +30,8 @@
     "src/app/chitietsanpham/components/InfoProduct/page.tsx",
     "src/app/chitietsanpham/[id]/page.jsx",
     "src/app/checkout/page.jsx",
-    "src/app/checkout/page.jsx"
+    "src/app/checkout/page.jsx",
+    "src/app/chitietsanpham/components/AddCart/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

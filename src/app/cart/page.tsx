@@ -37,9 +37,20 @@ const Cart: React.FC<cart> = () => {
       )
     );
   };
-
   const handleRemove = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    Swal.fire({
+      title: "Bạn có chắc chắn muốn xóa sản phẩm này?",
+      text: "Sản phẩm sẽ bị xóa khỏi giỏ hàng!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Xóa",
+      cancelButtonText: "Hủy",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+        Swal.fire("Đã xóa!", "Sản phẩm đã được xóa khỏi giỏ hàng.", "success");
+      }
+    });
   };
 
   const calculateProductTotal = () => {
@@ -48,7 +59,19 @@ const Cart: React.FC<cart> = () => {
       .toFixed(2);
   };
   const handleClearCart = () => {
-    setCart([]);
+    Swal.fire({
+      title: "Bạn có chắc chắn muốn xóa tất cả sản phẩm trong giỏ hàng?",
+      text: "Tất cả sản phẩm sẽ bị xóa!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Xóa tất cả",
+      cancelButtonText: "Hủy",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCart([]);
+        Swal.fire("Giỏ hàng đã được xóa!", "", "success");
+      }
+    });
   };
   const setShipping = useSetRecoilState(shippingState);
   const handleShippingChange = (event: React.ChangeEvent<HTMLInputElement>) => {

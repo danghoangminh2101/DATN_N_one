@@ -148,6 +148,7 @@ const ProductDetail = async ({ params }: { params: { id } }) => {
   //     return <div>Không tìm thấy sản phẩm</div>;
   //   }
   const product = sampleProducts.find((product) => product.id === params.id);
+
   if (!product) {
     return notFound();
   }

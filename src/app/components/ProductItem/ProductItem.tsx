@@ -9,6 +9,7 @@ import { Product } from "./product";
 import { useRecoilState } from "recoil";
 import { addCart } from "../../cart/cartState";
 import { cartState } from "../../cart/cartState";
+import Swal from "sweetalert2";
 
 export interface ProductItemProps {
   product: Product;
@@ -20,6 +21,12 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const addToCart = (product: Product) => {
     const newCart = addCart(cart, { ...product, quantity: 1, price }); // Giả sử quantity mặc định là 1
     setCart(newCart);
+    Swal.fire({
+      icon: "success",
+      title: "Thêm vào giỏ hàng thành công!",
+      text: `${product.name} đã được thêm vào giỏ hàng`,
+      confirmButtonText: "OK",
+    });
   };
 
   return (

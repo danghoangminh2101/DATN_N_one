@@ -23,6 +23,12 @@ const AddCart: React.FC<ProductItemProps> = ({ product }) => {
   const addToCart = (product: Product) => {
     const newCart = addCart(cart, { ...product, quantity });
     setCart(newCart);
+    Swal.fire({
+      icon: "success",
+      title: "Thêm vào giỏ hàng thành công!",
+      text: `${product.name} đã được thêm ${quantity} sản phẩm vào giỏ hàng`,
+      confirmButtonText: "OK",
+    });
   };
 
   // Hàm tăng số lượng

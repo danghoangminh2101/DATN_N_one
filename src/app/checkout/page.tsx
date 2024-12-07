@@ -244,7 +244,7 @@ export default function CheckOut() {
           <ToggleAdress />
         </div>
 
-        <div className="your-order-area w-50 custom:w-[40%] h-[100%] border border-gray-200 bg-[#ebebeb] text-[.8rem] p-[2rem]">
+        <div className="your-order-area w-[70%]  h-[100%] border border-gray-200 bg-[#ebebeb] text-[.8rem] p-[2rem] max-w-full  mx-auto">
           {/* Nội dung Your Order */}
           <h3 className="text-[24px] font-semibold text-black">Your order</h3>
           <div className="your-order-wrap gray-bg-4">
