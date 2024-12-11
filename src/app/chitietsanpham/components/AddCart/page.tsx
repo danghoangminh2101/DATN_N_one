@@ -21,12 +21,12 @@ const AddCart: React.FC<ProductItemProps> = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   // const price = product.price && !isNaN(product.price) ? product.price : 0;
   const addToCart = (product: Product) => {
-    const newCart = addCart(cart, { ...product, quantity });
+    const newCart = addCart(cart, { ...product?.data, quantity });
     setCart(newCart);
     Swal.fire({
       icon: "success",
       title: "Thêm vào giỏ hàng thành công!",
-      text: `${product.name} đã được thêm ${quantity} sản phẩm vào giỏ hàng`,
+      text: `${product?.data?.name} đã được thêm ${quantity} sản phẩm vào giỏ hàng`,
       confirmButtonText: "OK",
     });
   };
