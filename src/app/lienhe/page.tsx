@@ -20,7 +20,7 @@ const Lienhe = () => {
             <div className="self-center text-5xl font-medium leading-none text-center text-black max-md:text-4xl">
               Send A Quest
             </div>
-            <div className="flex flex-wrap gap-8 mt-14 justify-center text-sm font-light whitespace-nowrap text-neutral-400 max-md:mt-10 w-full">
+            <div className="flex flex-wrap gap-8 mt-14   justify-center text-sm font-light whitespace-nowrap text-neutral-400 max-md:mt-10 w-full">
               <input 
                 type="text"
                 placeholder="Name*"
