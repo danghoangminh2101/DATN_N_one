@@ -1,1 +1,0 @@
-export const corsNextjs='https://cors-anywhere.herokuapp.com'
