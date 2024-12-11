@@ -4,7 +4,7 @@ import { FiList } from "react-icons/fi";
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import ProductList from "./component/ProductList";
 import { useEffect, useState } from "react";
-import { productApi } from "./api/productApi";
+import { productApi } from "../pages/productApi";
 
 function ListProduct() {
     const [grid, setGrid] = useState(true); // true for grid view, false for list view
@@ -16,7 +16,7 @@ function ListProduct() {
           
           const res =  await productApi();
           // const data = await res.json();
-          setListUser(res.data); // Lưu dữ liệu vào state
+          setListUser(res); // Lưu dữ liệu vào state
         } catch (error) {
           console.error('Error fetching data:', error);
         } 

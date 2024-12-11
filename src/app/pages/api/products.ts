@@ -1,17 +1,19 @@
+import axios from "axios";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const response = await axios.get("https://api-core.dsp.one/api/auth/product", {
       headers: {
-        // Sao chép các header cần thiết nếu backend yêu cầu
         Accept: "application/json",
       },
     });
 
-    // Trả lại dữ liệu từ backend tới frontend
-    res.status(200).json(response.data);
-  } catch (error) {
-    console.error(error);
-    res.status(error.response?.status || 500).json({ message: "Error fetching data" });
+    res.status(200).json(response.data); // Trả dữ liệu về frontend
+  } catch (error: any) {
+    console.error("Error fetching data:", error.response?.status, error.response?.data);
+    res.status(error.response?.status || 500).json({
+      message: error.response?.data || "Error fetching data",
+    });
   }
 }

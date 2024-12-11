@@ -1,9 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import { FaFacebookF, FaGoogle } from 'react-icons/fa';
-import { register } from './api/register';
+import { register } from '../pages/register';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -26,10 +25,14 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     const data = {
-      ...formData,
-      address: '123 Street',
-      phone: '0123456789',
-      customer_id: 1,
+      name: "John Doe",
+      nick_name: "john",
+      email: "duyp7454@gmail.com",
+      address: "123 Street",
+      phone: "0123456789",
+      password: "password123",
+      password_confirmation: "password123",
+      customer_id: 1
     };
 
     console.log(data);
@@ -37,13 +40,11 @@ function Register() {
     try {
       const response = await register(data);
       if (response.message === 'User registered successfully!') {
-        toast.success('Đăng kí thành công');
         router.push('/dangnhap');
       }
       console.log('User registered:', response);
     } catch (error) {
       console.error('Error signing up:', error);
-      toast.error('Đăng ký thất bại, vui lòng thử lại.');
     }
   };
 
@@ -67,7 +68,7 @@ function Register() {
                   className="w-full text-sm px-4 py-3 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition-colors"
                   type="text"
                   placeholder="Name"
-                  required
+                  
                 />
               </div>
               <div>
@@ -78,7 +79,7 @@ function Register() {
                   className="w-full text-sm px-4 py-3 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition-colors"
                   type="email"
                   placeholder="Email"
-                  required
+                  
                 />
               </div>
               <div className="relative">
@@ -89,7 +90,7 @@ function Register() {
                   placeholder="Password"
                   type={showPassword ? 'text' : 'password'}
                   className="text-sm text-black px-4 py-3 rounded-lg w-full bg-transparent border border-gray-300 focus:outline-none focus:border-blue-600 transition-colors"
-                  required
+                  
                   aria-label="Password"
                 />
                 <div
@@ -108,7 +109,7 @@ function Register() {
                   placeholder="Confirm Password"
                   type="password"
                   className="text-sm text-black px-4 py-3 rounded-lg w-full bg-transparent border border-gray-300 focus:outline-none focus:border-blue-600 transition-colors"
-                  required
+                  
                   aria-label="Password Confirmation"
                 />
               </div>
