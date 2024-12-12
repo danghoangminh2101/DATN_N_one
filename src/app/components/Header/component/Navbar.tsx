@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [isProductHovered, setIsProductHovered] = useState(false);
+  const [isBlogHovered, setIsBlogHovered] = useState(false);
 
   const handleMouseEnter = () => {
     setIsProductHovered(true);
@@ -11,6 +12,14 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setIsProductHovered(false);
+  };
+
+  const handleMouseEnterBlog = () => {
+    setIsBlogHovered(true);
+  };
+
+  const handleMouseLeaveBlog = () => {
+    setIsBlogHovered(false);
   };
 
   return (
@@ -106,7 +115,25 @@ const Navbar = () => {
           </li>
           <li><Link href="/gioithieu" className="hover:underline">About</Link></li>
           <li><Link href="/listProduct" className="hover:underline">Shop</Link></li>
-          <li><Link href="" className="hover:underline">Blog</Link></li>
+    
+          <li
+            onMouseEnter={handleMouseEnterBlog}
+            onMouseLeave={handleMouseLeaveBlog}
+            className="relative"
+          >
+            <span className="hover:underline">Blog</span>
+            {isBlogHovered && (
+              <ul className="absolute left-0 bg-gray-800 border border-gray-600">
+                <li>
+                  <Link href="/blog/grid" className="block px-4 py-2 text-gray-300 hover:text-blue-500">Blog Grid</Link>
+                </li>
+                <li>
+                  <Link href="/blog/list" className="block px-4 py-2 text-gray-300 hover:text-blue-500">Blog List</Link>
+                </li>
+              </ul>
+            )}
+          </li>
+          
           <li><Link href="/lienhe" className="hover:underline">Contact</Link></li>
         </ul>
       </div>
