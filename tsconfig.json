@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "target": "ESNext",
     "incremental": true,
     "plugins": [
       {
@@ -21,6 +22,16 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/middleware.js", "next.config.mjs"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/chitietsanpham/components/InfoProduct/page.tsx",
+    "src/app/chitietsanpham/[id]/page.jsx",
+    "src/app/checkout/page.jsx",
+    "src/app/checkout/page.jsx",
+    "src/app/chitietsanpham/components/AddCart/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }
