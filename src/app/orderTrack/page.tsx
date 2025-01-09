@@ -6,11 +6,11 @@ function OrderTrack() {
       {/* Breadcrumb Area */}
       <div className="breadcrumb-area relative bg-gray-300 min-h-[35vh]" style={{ borderRadius: '20px' }}>
         <div className="text-left container m-auto">
-          <div className='absolute top-[30%] left-[40%] z-[10]'>
-            <h2 className='text-center text-[3rem] font-semibold'>Order Tracking</h2>
-            <div className="flex gap-6 self-center max-w-full text-[rem] leading-none uppercase whitespace-nowrap w-[172px]">
+          <div className='absolute top-[30%] left-1/2 transform -translate-x-1/2 z-[10] text-center'>
+            <h2 className='text-[3rem] font-semibold'>Order Tracking</h2>
+            <div className="flex gap-6 justify-center items-center max-w-full text-[1rem] leading-none uppercase whitespace-nowrap">
               <Link href="/" className="text-black hover:text-blue-600">Home</Link>
-              <div className="grow shrink text-blue-600 w-[92px]"> // OrderTrack</div>
+              <div className="text-blue-600"> // OrderTrack</div>
             </div>
           </div>
           <div className="absolute top-[30%] left-[40%] z-0 text-gray-400 text-8xl font-thin ">
@@ -35,7 +35,7 @@ function OrderTrack() {
                   id="order-id"
                   type="text"
                   placeholder="Found in your order confirmation email."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 bg-transparent"
                 />
               </div>
               <div className="mb-6">
@@ -46,11 +46,11 @@ function OrderTrack() {
                   id="billing-email"
                   type="email"
                   placeholder="Email you used during checkout."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 bg-transparent"
                 />
               </div>
-              <button className="block text-center bg-black hover:bg-[#266bf9] text-white py-3 px-[2.4rem] rounded-[2rem] text-[1.1rem]">
-                Track
+              <button className="block text-center bg-black hover:bg-[#266bf9] text-white py-3 px-8 rounded-full text-[1.1rem]">
+                TRACK
               </button>
             </form>
           </div>
