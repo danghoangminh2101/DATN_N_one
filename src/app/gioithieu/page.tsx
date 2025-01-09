@@ -3,18 +3,19 @@ import Link from "next/link";
 
 const Gioithieu = () => {
   return (
+    
     <div>
        {/* Breadcrumb Area */}
        <div className="breadcrumb-area relative bg-gray-300 min-h-[35vh]" style={{ borderRadius: '20px' }}>
         <div className="text-left container m-auto">
-          <div className='absolute top-[30%] left-[40%] z-[10]'>
-            <h2 className='text-center text-[3rem] font-semibold'>About Us</h2>
-            <div className="flex gap-6 self-center max-w-full text-[rem] leading-none uppercase whitespace-nowrap w-[172px]">
+          <div className='absolute top-[30%] left-1/2 transform -translate-x-1/2 z-[10] text-center'>
+            <h2 className='text-[3rem] font-semibold'>About Us</h2>
+            <div className="flex gap-6 justify-center items-center max-w-full text-[1rem] leading-none uppercase whitespace-nowrap">
               <Link href="/" className="text-black hover:text-blue-600">Home</Link>
-              <div className="grow shrink text-blue-600 w-[92px]"> // About Us</div>
+              <div className="text-blue-600"> // About Us</div>
             </div>
           </div>
-          <div className="absolute top-[30%] left-[40%] z-0 text-gray-400 text-8xl font-thin ">
+          <div className="absolute top-[30%] left-1/2 transform -translate-x-1/2 z-0 text-gray-400 text-8xl font-thin ">
             1920x406
           </div>
         </div>
