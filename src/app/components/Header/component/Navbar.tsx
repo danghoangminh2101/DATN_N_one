@@ -5,17 +5,26 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Navbar = () => {
   const [isProductHovered, setIsProductHovered] = useState(false);
+  const [isBlogHovered, setIsBlogHovered] = useState(false);  // State for Blog dropdown
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnterProduct = () => {
     setIsProductHovered(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeaveProduct = () => {
     setIsProductHovered(false);
   };
 
-  // Theo dõi sự kiện cuộn
+  const handleMouseEnterBlog = () => {
+    setIsBlogHovered(true);
+  };
+
+  const handleMouseLeaveBlog = () => {
+    setIsBlogHovered(false);
+  };
+
+  // Monitor scroll event
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -33,107 +42,100 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`${
-        isScrolled ? "fixed top-0 left-0 w-full bg-blue-600 shadow-lg z-50" : "bg-blue-600"
+  <div className="bg-black">
+      <nav
+      className={` ${
+        isScrolled ? "fixed w-[100%] top-0 left-0  bg-blue-600 shadow-lg z-50" : "container bg-blue-600"
       } py-3 transition-all duration-300`}
     >
       <div className="w-[80%] mx-auto flex justify-center uppercase">
-        <ul className="flex gap-[3rem] text-white text-[.9rem] font-medium">
+        <ul className="flex gap-[3rem] text-white text-[.8rem] font-medium">
           <li><Link href="/">Home</Link></li>
           <li
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnterProduct}
+            onMouseLeave={handleMouseLeaveProduct}
             className="relative"
           >
             <button className="focus:outline-none flex justify-center items-center gap-1 uppercase">
               Page
-              <MdKeyboardArrowDown className="" />
+              <MdKeyboardArrowDown />
             </button>
             {isProductHovered && (
               <div
-                className="absolute left-0 top-full z-20"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                className="absolute left-0 top-full z-20 bg-white shadow-lg p-4 mt-1 rounded-lg w-[1000px]"
+                onMouseEnter={handleMouseEnterProduct}
+                onMouseLeave={handleMouseLeaveProduct}
               >
-                <div className="bg-white p-5 shadow-lg rounded-lg">
-                  <div className="w-[600px] px-[.5rem]">
-                    <ul className="flex">
-                      <div className="text-black border-r border-gray-300 px-4">
-                        <h3 className="text-[.9rem] text-[#7500CF] mb-[.1rem] font-semibold">
-                          Inner Pages
-                        </h3>
-                        <li className="w-[100%] ">
-                          <Link href="/404" className="text-[.8rem] text-black">
-                            404 Page
-                          </Link>
-                        </li>
-                        <li className="w-[100%]">
-                          <Link href="/comingsoon" className="text-[.8rem] text-black">
-                            Coming Soon
-                          </Link>
-                        </li>
-                      </div>
-
-                      <div className="text-black border-r border-gray-300 px-4">
-                        <h3 className="text-[.9rem] text-[#7500CF] mb-[.1rem] font-semibold">
-                          Other Pages
-                        </h3>
-                        <li className="w-[100%] ">
-                          <Link href="/cart" className="text-[.8rem] text-black">
-                            Cart Page
-                          </Link>
-                        </li>
-                        <li className="w-[100%] ">
-                          <Link href="/checkout" className="text-[.8rem] text-black">
-                            Checkout Page
-                          </Link>
-                        </li>
-                        <li className="w-[100%] ">
-                          <Link href="/orderTrack" className="text-[.8rem] text-black">
-                            Order Page
-                          </Link>
-                        </li>
-                        <li className="w-[100%] ">
-                          <Link href="/orderSuccess" className="text-[.8rem] text-black">
-                            Order Success Page
-                          </Link>
-                        </li>
-                      </div>
-
-                      <div className="text-black pl-4">
-                        <h3 className="text-[.9rem] text-[#7500CF] mb-[.1rem] font-semibold">
-                          Related Pages
-                        </h3>
-                        <li className="w-[100%] ">
-                          <Link href="/account" className="text-[.8rem] text-black">
-                            Account
-                          </Link>
-                        </li>
-                        <li className="w-[100%] ">
-                          <Link href="/dangnhap" className="text-[.8rem] text-black">
-                            Login
-                          </Link>
-                        </li>
-                        <li className="w-[100%] ">
-                          <Link href="/dangki" className="text-[.8rem] text-black">
-                            Register
-                          </Link>
-                        </li>
-                      </div>
+                <div className="grid grid-cols-4 gap-4 text-black">
+                  <div className="border border-r-gray-300 border-transparent">
+                    <h2 className="text-[.8rem] font-bold ">Inner Pages</h2>
+                    <ul className="space-y-2 mt-[1rem] text-[.7rem] text-gray-500 font-semibold">
+                      <li><Link href="/404" className="hover:text-blue-500 hover:ml-[7px] transition-all ">404 Page</Link></li>
+                      <li><Link href="/orderTrack" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Order Tracking</Link></li>
+                      <li><Link href="/faq" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Faq Page</Link></li>
+                      <li><Link href="/comingsoon" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Coming Soon Page</Link></li>
                     </ul>
+                  </div>
+
+                  <div className="border border-r-gray-300 border-transparent">
+                    <h2 className="text-[.8rem] font-bold">Other Shop Pages</h2>
+                    <ul className="space-y-2 mt-[1rem] text-[.7rem] text-gray-500 font-semibold">
+                      <li><Link href="/cart" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Cart Page</Link></li>
+                      <li><Link href="/checkout" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Checkout Page</Link></li>
+                      {/* <li><Link href="#" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Compare Page</Link></li>
+                      <li><Link href="#" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Wishlist Page</Link></li> */}
+                    </ul>
+                  </div>
+
+                  <div className="border border-r-gray-300 border-transparent">
+                    <h2 className="text-[.8rem] font-bold">Related Shop Pages</h2>
+                    <ul className="space-y-2 mt-[1rem] text-[.7rem] text-gray-500 font-semibold">
+                      <li><Link href="/account" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Account Page</Link></li>
+                      <li><Link href="/dangnhap" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Login & Register Page</Link></li>
+                      {/* <li><Link href="/giohangtrong" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Empty Cart Page</Link></li> */}
+                      <li><Link href="/orderSuccess" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Thank You Page</Link></li>
+                    </ul>
+                  </div>
+                  <div className="w-full h-48 bg-gray-300 text-center flex items-center justify-center">
+                    <span className="text-gray-500">244x182</span>
                   </div>
                 </div>
               </div>
             )}
           </li>
+
+          {/* Blog Dropdown */}
+          <li
+            onMouseEnter={handleMouseEnterBlog}
+            onMouseLeave={handleMouseLeaveBlog}
+            className="relative"
+          >
+            <button className="focus:outline-none flex justify-center items-center gap-1 uppercase">
+              Blog
+              <MdKeyboardArrowDown />
+            </button>
+            {isBlogHovered && (
+              <div
+                className="absolute left-0 top-full z-20 bg-white shadow-lg p-4 mt-1 rounded-lg w-[300px]"
+                onMouseEnter={handleMouseEnterBlog}
+                onMouseLeave={handleMouseLeaveBlog}
+              >
+                <ul className="space-y-2 text-[.7rem] text-gray-500 font-semibold">
+                  <li><Link href="/blog/blogList" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Blog List</Link></li>
+                  <li><Link href="/blog/blogGrid" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Blog Grid</Link></li>
+                  <li><Link href="/blog/detail" className="hover:text-blue-500 hover:ml-[7px] transition-all ">Blog Detail</Link></li>
+                </ul>
+              </div>
+            )}
+          </li>
+
           <li><Link href="/gioithieu" className="hover:underline">About</Link></li>
           <li><Link href="/listProduct" className="hover:underline">Shop</Link></li>
-          <li><Link href="" className="hover:underline">Blog</Link></li>
-          <li><Link href="/lienhe" className="hover:underline">Contact</Link></li>
+          <li><Link href="#" className="hover:underline">Contact</Link></li>
         </ul>
       </div>
     </nav>
+  </div>
   );
 };
 
