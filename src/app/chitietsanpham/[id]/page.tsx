@@ -51,8 +51,38 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
     );
   }
 
-  const { name, price, sale, originalPrice, rating, reviews, short_description, category, type } = product?.data;
-
+  const {
+    name,
+    price,
+    sale,
+    originalPrice,
+    rating,
+    reviews,
+    short_description,
+    category,
+    type,
+  } = product?.data;
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
     <div>
       <BannerDetailProduct />
@@ -65,14 +95,38 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
               className="w-full h-auto rounded-[10px]"
               alt="Product image"
             />
+
+            <div className="flex justify-center space-x-2 mt-4">
+              <img
+                src="https://via.placeholder.com/127x127"
+                alt="Thumbnail 1"
+                className="w-1/4 h-auto cursor-pointer rounded-[10px]"
+              />
+              <img
+                src="https://via.placeholder.com/127x127"
+                alt="Thumbnail 2"
+                className="w-1/4 h-auto cursor-pointer rounded-[10px]"
+              />
+              <img
+                src="https://via.placeholder.com/127x127"
+                alt="Thumbnail 3"
+                className="w-1/4 h-auto cursor-pointer rounded-[10px]"
+              />
+            </div>
           </div>
 
           {/* Cột thông tin sản phẩm */}
           <div className="w-full md:w-1/2 p-4 mb-4">
-            <h1 className="text-[36px] text-black capitalize leading-none font-normal mb-5">{name}</h1>
+            <h1 className="text-[36px] text-black capitalize leading-none font-normal mb-5">
+              {name}
+            </h1>
             <p className="text-[36px] text-black leading-[30px] font-semibold">
               {price}
-              {sale && <span className="line-through text-red-500 ml-2">{originalPrice}</span>}
+              {sale && (
+                <span className="line-through text-red-500 ml-2">
+                  {originalPrice}
+                </span>
+              )}
             </p>
             <div className="flex items-center mt-2 mb-4">
               <span className="text-yellow-500">
@@ -105,7 +159,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
           </div>
         </div>
         <div className="mt-10">
-          <h2 className="text-[48px] text-center font-semibold mb-5">Related Products</h2>
+          <h2 className="text-[48px] text-center font-semibold mb-5">
+            Related Products
+          </h2>
           <p className="text-[18px] text-center text-gray-500 mb-7">
             There are many variations of passages of Lorem Ipsum available
           </p>
